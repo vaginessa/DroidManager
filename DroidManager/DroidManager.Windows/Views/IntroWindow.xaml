@@ -7,13 +7,18 @@
                       xmlns:local="clr-namespace:DroidManager.Windows.Views"
                       xmlns:vm="clr-namespace:DroidManager.Windows.VM"
                       mc:Ignorable="d"
+                      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                      Background="{DynamicResource MaterialDesignPaper}"
+                      WindowStartupLocation="CenterScreen"
+                      FontFamily="Roboto"
                       ResizeMode="CanMinimize"
-                      Title="DroidManager" Height="425.726" Width="687.664" Icon="../logo.ico">
+                      Title="DroidManager" Height="386.495" Width="602.664" Icon="../logo.ico">
     <Window.DataContext>
         <vm:IntroWindowVM />
     </Window.DataContext>
     <Grid>
-
+        <TextBlock x:Name="titleBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DroidManager" VerticalAlignment="Top"  FontWeight="Bold" FontSize="36" Width="237" Margin="180,40,179.5,0"/>
+        <Button x:Name="launchAppButton" Content="Launch Application" Width="200" Margin="198,0,198.5,40" Height="48" VerticalAlignment="Bottom" />
     </Grid>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>

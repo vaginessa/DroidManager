@@ -14,6 +14,13 @@ namespace DroidManager.Windows.VM
 
         public ICommand ViewAboutCommand => new DelegateCommand(ViewAbout);
 
+        public ICommand LaunchMainApplicationCommand = new DelegateCommand(LaunchMainApplication);
+
+        private static void LaunchMainApplication(object obj)
+        {
+            
+        }
+
         private void ViewAbout(object obj)
         {
             DroidManagerContext.WindowService.ShowWindow<AboutWindow>(View.WindowHandle);
