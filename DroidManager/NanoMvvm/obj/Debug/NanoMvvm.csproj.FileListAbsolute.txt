@@ -1,5 +1,0 @@
-C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\obj\Debug\NanoMvvm.csprojResolveAssemblyReference.cache
-C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\bin\Debug\NanoMvvm.dll
-C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\bin\Debug\NanoMvvm.pdb
-C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\obj\Debug\NanoMvvm.dll
-C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\obj\Debug\NanoMvvm.pdb
