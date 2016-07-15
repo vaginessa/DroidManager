@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidManager.Windows", "Dro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADBClient", "ADBClient", "{E888CC88-DDCA-4507-9230-FE1868714524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoMvvm", "NanoMvvm\NanoMvvm.csproj", "{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoMvvm.Wpf", "NanoMvvm\NanoMvvm.Wpf.csproj", "{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidManager.Core", "DroidManager.Core\DroidManager.Core.csproj", "{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}"
 EndProject

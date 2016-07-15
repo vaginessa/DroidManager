@@ -87,7 +87,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SharpAdbClient\SharpAdbClient.csproj">
       <Project>{65473257-e70f-410b-9269-d0c0f771ea87}</Project>
-      <Name>Managed.Adb</Name>
+      <Name>SharpAdbClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

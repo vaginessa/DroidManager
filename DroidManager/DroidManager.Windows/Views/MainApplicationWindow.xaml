@@ -14,8 +14,12 @@
                       FontFamily="Roboto"
                       Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
     <Grid>
-        <materialMenu:SideMenu HorizontalAlignment="Left" x:Name="Menu"
-                               MenuWidth="180"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        
+        <materialMenu:SideMenu Grid.Column="0" HorizontalAlignment="Left" x:Name="Menu"
                                Theme="Default"
                                ClosingType="Manual"
                                State="Visible" ShadowBackground="#00000000">

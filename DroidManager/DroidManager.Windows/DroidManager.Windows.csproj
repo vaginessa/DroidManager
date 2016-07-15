@@ -165,9 +165,9 @@
       <Project>{1a3e6e0c-17c2-45be-87b3-8b4660d83ed0}</Project>
       <Name>DroidManager.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NanoMvvm\NanoMvvm.csproj">
+    <ProjectReference Include="..\NanoMvvm\NanoMvvm.Wpf.csproj">
       <Project>{cda9ac48-1741-4c5c-8546-3c0c4051c7e6}</Project>
-      <Name>NanoMvvm</Name>
+      <Name>NanoMvvm.Wpf</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

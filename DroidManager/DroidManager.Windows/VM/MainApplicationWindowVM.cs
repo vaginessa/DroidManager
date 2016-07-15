@@ -1,14 +1,15 @@
 ﻿using NanoMvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NanoMvvm.Pagination;
 
 namespace DroidManager.Windows.VM
 {
-    class MainApplicationWindowVM : ViewModelBase
+    internal class MainApplicationWindowVM : ViewModelBase
     {
+        private PageSwitcherService _pageSwitcher;
 
+        public MainApplicationWindowVM()
+        {
+            
+        }
     }
 }

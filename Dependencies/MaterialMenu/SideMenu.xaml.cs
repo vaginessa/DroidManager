@@ -225,7 +225,7 @@ namespace MaterialMenu
         {
             Panel.SetZIndex(this, int.MaxValue);
             RenderTransform = new TranslateTransform(-MenuWidth, 0);
-            (FindName("MenuColumn") as ColumnDefinition).Width = new GridLength(MenuWidth);
+            //(FindName("MenuColumn") as ColumnDefinition).Width = new GridLength(MenuWidth);
 
             //this is a little hack to fire propertu changes.
             //wpf so complex, it could be much simple...
