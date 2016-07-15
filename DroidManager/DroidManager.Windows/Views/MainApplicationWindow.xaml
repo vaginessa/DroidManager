@@ -1,5 +1,5 @@
 ﻿<Controls:MetroWindow x:Class="DroidManager.Windows.Views.MainApplicationWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,22 +15,23 @@
                       Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
     <Grid>
         <materialMenu:SideMenu HorizontalAlignment="Left" x:Name="Menu"
-                           MenuWidth="300"
-                           Theme="Default"
-                           State="Visible">
+                               MenuWidth="180"
+                               Theme="Default"
+                               ClosingType="Manual"
+                               State="Visible" ShadowBackground="#00000000">
             <materialMenu:SideMenu.Menu>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <StackPanel Orientation="Vertical">
-                        <Border Background="#337AB5">
+                        <Border Background="#FF1872BD" Height="80">
                             <Grid Margin="10">
-                                <TextBox Height="150" BorderThickness="0" Background="Transparent"
-                                VerticalContentAlignment="Bottom" FontFamily="Calibri" FontSize="18"
-                                Foreground="WhiteSmoke" FontWeight="Bold">Welcome</TextBox>
+                                <TextBlock Background="Transparent"
+                                           FontFamily="Calibri" FontSize="18"
+                                           Foreground="WhiteSmoke" FontWeight="Bold">DroidManager</TextBlock>
                             </Grid>
                         </Border>
-                        <materialMenu:MenuButton Text="Administration"></materialMenu:MenuButton>
-                        <materialMenu:MenuButton Text="Packing"></materialMenu:MenuButton>
-                        <materialMenu:MenuButton Text="Logistics"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton Text="Overview"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton Text="Applications"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton Text="Backup"></materialMenu:MenuButton>
                     </StackPanel>
                 </ScrollViewer>
             </materialMenu:SideMenu.Menu>

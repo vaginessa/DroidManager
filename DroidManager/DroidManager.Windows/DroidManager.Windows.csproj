@@ -70,10 +70,6 @@
       <HintPath>..\packages\MaterialDesignThemes.2.0.1-ci640\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MaterialMenu, Version=0.0.4.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialMenu.0.0.4.5\lib\net46\MaterialMenu.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -161,6 +157,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Dependencies\MaterialMenu\MaterialMenu.csproj">
+      <Project>{dc810fba-1dc9-429f-a247-35075ea49648}</Project>
+      <Name>MaterialMenu</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DroidManager.Core\DroidManager.Core.csproj">
       <Project>{1a3e6e0c-17c2-45be-87b3-8b4660d83ed0}</Project>
       <Name>DroidManager.Core</Name>
