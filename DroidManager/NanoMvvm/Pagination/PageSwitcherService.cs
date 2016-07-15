@@ -4,21 +4,23 @@ namespace NanoMvvm.Pagination
 {
     public class PageSwitcherService
     {
-        private Frame hostFrame;
+        private ContentControl hostControl;
 
-        public PageSwitcherService(Frame hostWindow)
+        public PageSwitcherService(ContentControl hostWindow)
         {
-            this.hostFrame = hostWindow;
+            this.hostControl = hostWindow;
         }
 
-        public void Navigate(UserControl nextPage)
+        public void LoadPage<T>() where T : UserControl, ISwitchablePage, new()
         {
-            hostFrame.Content = nextPage;
+            var nextPage = new T();
+            hostControl.Content = nextPage;
         }
 
-        public void Navigate(UserControl nextPage, object state)
+        public void LoadPage<T>(object state) where T : UserControl, new()
         {
-            hostFrame.Content = nextPage;
+            var nextPage = new T();
+            hostControl.Content = nextPage;
             (nextPage as ISwitchablePage)?.UtilizeState(state);
         }
     }

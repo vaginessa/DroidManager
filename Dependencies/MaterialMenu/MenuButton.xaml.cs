@@ -38,7 +38,7 @@ namespace MaterialMenu
     public partial class MenuButton 
     {
         private bool _areChildrenVisible;
-        private Brush _originalBackgound;
+        //private Brush _originalBackgound;
 
         public MenuButton()
         {

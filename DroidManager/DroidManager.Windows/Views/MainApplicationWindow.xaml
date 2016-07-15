@@ -7,12 +7,18 @@
                       xmlns:local="clr-namespace:DroidManager.Windows.Views"
                       xmlns:vm="clr-namespace:DroidManager.Windows.VM"
                       xmlns:materialMenu="clr-namespace:MaterialMenu;assembly=MaterialMenu"
+                      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                       mc:Ignorable="d"
                       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                       Background="{DynamicResource MaterialDesignPaper}"
                       WindowStartupLocation="CenterScreen"
                       FontFamily="Roboto"
                       Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding MyICommandThatShouldHandleLoaded}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -45,6 +51,9 @@
                     </ScrollViewer>
                 </materialMenu:SideMenu.Menu>
             </materialMenu:SideMenu>
+        </Grid>
+        <Grid Grid.Column="2">
+            <ContentControl Name="pageHost" Content="{Binding PageSwitchMessage}" />
         </Grid>
     </Grid>
     <Window.DataContext>

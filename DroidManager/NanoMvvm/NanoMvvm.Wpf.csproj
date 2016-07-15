@@ -53,8 +53,11 @@
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="IWindowService.cs" />
+    <Compile Include="Pagination\IPaginatingView.cs" />
     <Compile Include="Pagination\ISwitchablePage.cs" />
     <Compile Include="Pagination\PageSwitcherService.cs" />
+    <Compile Include="Pagination\PaginatingViewModel.cs" />
+    <Compile Include="Pagination\PaginationMessage.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextMessage.cs" />

@@ -1,24 +1,13 @@
-﻿using NanoMvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using NanoMvvm.Pagination;
 
 namespace DroidManager.Windows.Views
 {
     /// <summary>
     /// Interaction logic for MainApplicationWindow.xaml
     /// </summary>
-    public partial class MainApplicationWindow : IView
+    public partial class MainApplicationWindow : IPaginatingView
     {
         public MainApplicationWindow()
         {
@@ -26,5 +15,6 @@ namespace DroidManager.Windows.Views
         }
 
         public Window WindowHandle => this;
+        public ContentControl PageHost => pageHost;
     }
 }
