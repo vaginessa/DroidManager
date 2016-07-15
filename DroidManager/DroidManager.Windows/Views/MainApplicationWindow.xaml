@@ -18,28 +18,34 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-        
-        <materialMenu:SideMenu Grid.Column="0" HorizontalAlignment="Left" x:Name="Menu"
-                               Theme="Default"
-                               ClosingType="Manual"
-                               State="Visible" ShadowBackground="#00000000">
-            <materialMenu:SideMenu.Menu>
-                <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                    <StackPanel Orientation="Vertical">
-                        <Border Background="#FF1872BD" Height="80">
-                            <Grid Margin="10">
-                                <TextBlock Background="Transparent"
-                                           FontFamily="Calibri" FontSize="18"
-                                           Foreground="WhiteSmoke" FontWeight="Bold">DroidManager</TextBlock>
-                            </Grid>
-                        </Border>
-                        <materialMenu:MenuButton Text="Overview"></materialMenu:MenuButton>
-                        <materialMenu:MenuButton Text="Applications"></materialMenu:MenuButton>
-                        <materialMenu:MenuButton Text="Backup"></materialMenu:MenuButton>
-                    </StackPanel>
-                </ScrollViewer>
-            </materialMenu:SideMenu.Menu>
-        </materialMenu:SideMenu>
+
+        <Grid Grid.Column="0" Name="MenuGrid">
+            <materialMenu:SideMenu HorizontalAlignment="Left" x:Name="Menu"
+                                   Theme="Default"
+                                   ClosingType="Manual"
+                                   State="Visible" ShadowBackground="#00000000">
+                <materialMenu:SideMenu.Menu>
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,-0.5" Width="185">
+                        <StackPanel Orientation="Vertical">
+                            <Border Background="#FF1872BD" Height="80">
+                                <Grid Margin="10">
+                                    <TextBlock Background="Transparent"
+                                               FontFamily="Calibri" FontSize="18"
+                                               Foreground="WhiteSmoke" FontWeight="Bold">DroidManager</TextBlock>
+                                </Grid>
+                            </Border>
+                            <materialMenu:MenuButton Text="Device">
+                                <materialMenu:MenuButton.Children>
+                                    <materialMenu:MenuButton Text="Overview"></materialMenu:MenuButton>
+                                    <materialMenu:MenuButton Text="Applications"></materialMenu:MenuButton>
+                                    <materialMenu:MenuButton Text="Backup"></materialMenu:MenuButton>
+                                </materialMenu:MenuButton.Children>
+                            </materialMenu:MenuButton>
+                        </StackPanel>
+                    </ScrollViewer>
+                </materialMenu:SideMenu.Menu>
+            </materialMenu:SideMenu>
+        </Grid>
     </Grid>
     <Window.DataContext>
         <vm:MainApplicationWindowVM />
