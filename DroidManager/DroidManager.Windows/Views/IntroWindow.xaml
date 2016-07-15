@@ -18,7 +18,7 @@
     </Window.DataContext>
     <Grid>
         <TextBlock x:Name="titleBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DroidManager" VerticalAlignment="Top"  FontWeight="Bold" FontSize="36" Width="237" Margin="180,40,179.5,0"/>
-        <Button x:Name="launchAppButton" Content="Launch Application" Width="200" Margin="198,0,198.5,40" Height="48" VerticalAlignment="Bottom" />
+        <Button x:Name="launchAppButton" Content="Launch Application" Width="200" Margin="198,0,198.5,40" Height="48" VerticalAlignment="Bottom" Command="{Binding LaunchMainApplicationCommand}"/>
     </Grid>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>

@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>DroidManagerWinSigningKey.snk</AssemblyOriginatorKeyFile>
@@ -107,8 +107,12 @@
     <Compile Include="Views\IntroWindow.xaml.cs">
       <DependentUpon>IntroWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainApplicationWindow.xaml.cs">
+      <DependentUpon>MainApplicationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VM\AboutWindowVM.cs" />
     <Compile Include="VM\IntroWindowVM.cs" />
+    <Compile Include="VM\MainApplicationWindowVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -148,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IntroWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainApplicationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,6 +17,13 @@ namespace NanoMvvm
             newWindow.Show();
         }
 
+        public void ShowWindowDialog<T>(Window owner) where T : Window, new()
+        {
+            var newWindow = new T();
+            newWindow.Owner = owner;
+            newWindow.ShowDialog();
+        }
+
         public void ShowWindow<T>(object dataContext, Window owner) where T : Window, new()
         {
             var newWindow = new T();

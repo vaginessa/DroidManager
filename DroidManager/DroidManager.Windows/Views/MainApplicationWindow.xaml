@@ -1,0 +1,42 @@
+﻿<Controls:MetroWindow x:Class="DroidManager.Windows.Views.MainApplicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:local="clr-namespace:DroidManager.Windows.Views"
+                      xmlns:vm="clr-namespace:DroidManager.Windows.VM"
+                      xmlns:materialMenu="clr-namespace:MaterialMenu;assembly=MaterialMenu"
+                      mc:Ignorable="d"
+                      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                      Background="{DynamicResource MaterialDesignPaper}"
+                      WindowStartupLocation="CenterScreen"
+                      FontFamily="Roboto"
+                      Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
+    <Grid>
+        <materialMenu:SideMenu HorizontalAlignment="Left" x:Name="Menu"
+                           MenuWidth="300"
+                           Theme="Default"
+                           State="Visible">
+            <materialMenu:SideMenu.Menu>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel Orientation="Vertical">
+                        <Border Background="#337AB5">
+                            <Grid Margin="10">
+                                <TextBox Height="150" BorderThickness="0" Background="Transparent"
+                                VerticalContentAlignment="Bottom" FontFamily="Calibri" FontSize="18"
+                                Foreground="WhiteSmoke" FontWeight="Bold">Welcome</TextBox>
+                            </Grid>
+                        </Border>
+                        <materialMenu:MenuButton Text="Administration"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton Text="Packing"></materialMenu:MenuButton>
+                        <materialMenu:MenuButton Text="Logistics"></materialMenu:MenuButton>
+                    </StackPanel>
+                </ScrollViewer>
+            </materialMenu:SideMenu.Menu>
+        </materialMenu:SideMenu>
+    </Grid>
+    <Window.DataContext>
+        <vm:MainApplicationWindowVM />
+    </Window.DataContext>
+</Controls:MetroWindow>
