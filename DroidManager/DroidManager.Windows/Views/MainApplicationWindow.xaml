@@ -13,10 +13,11 @@
                       Background="{DynamicResource MaterialDesignPaper}"
                       WindowStartupLocation="CenterScreen"
                       FontFamily="Roboto"
+                      
                       Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
     <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding MyICommandThatShouldHandleLoaded}" />
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
@@ -53,7 +54,7 @@
             </materialMenu:SideMenu>
         </Grid>
         <Grid Grid.Column="2">
-            <ContentControl Name="pageHost" Content="{Binding PageSwitchMessage}" />
+            <ContentControl Name="pageHost"/>
         </Grid>
     </Grid>
     <Window.DataContext>
