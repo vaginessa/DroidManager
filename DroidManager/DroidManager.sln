@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.25428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidManager.Windows", "DroidManager.Windows\DroidManager.Windows.csproj", "{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADBClient", "ADBClient", "{E888CC88-DDCA-4507-9230-FE1868714524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoMvvm", "NanoMvvm\NanoMvvm.csproj", "{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidManager.Core", "DroidManager.Core\DroidManager.Core.csproj", "{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,14 @@ Global
 		{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA9AC48-1741-4C5C-8546-3C0C4051C7E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3E6E0C-17C2-45BE-87B3-8B4660D83ED0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
