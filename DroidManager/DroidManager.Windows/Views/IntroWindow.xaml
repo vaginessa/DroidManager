@@ -8,7 +8,7 @@
                       xmlns:vm="clr-namespace:DroidManager.Windows.VM"
                       mc:Ignorable="d"
                       ResizeMode="CanMinimize"
-                      Title="DroidManager" Height="348.718" Width="521.296" Icon="../logo.ico">
+                      Title="DroidManager" Height="425.726" Width="687.664" Icon="../logo.ico">
     <Window.DataContext>
         <vm:IntroWindowVM />
     </Window.DataContext>
