@@ -1,0 +1,22 @@
+<project outputDir=".\Modphused" baseDir="..\bin\Release" xmlns="http://confuser.codeplex.com">
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\DroidManager.Core.dll" snKey="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Core\DroidManagerCoreKey.snk">
+    <rule pattern="true" preset="maximum" inherit="false" />
+  </module>
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\DroidManager.Windows.exe" snKey="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\DroidManagerWinSigningKey.snk">
+    <rule pattern="true" inherit="false">
+      <protection id="anti ildasm" />
+      <protection id="anti tamper" />
+      <protection id="constants" />
+      <protection id="ctrl flow" />
+      <protection id="anti debug" />
+      <protection id="anti dump" />
+      <protection id="invalid metadata" />
+      <protection id="ref proxy" />
+      <protection id="resources" />
+      <protection id="rename" />
+    </rule>
+  </module>
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MahApps.Metro.dll" />
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\NanoMvvm.dll" snKey="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\NanoMvvm\NanoMvvmKey.snk" />
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\System.Windows.Interactivity.dll" />
+</project>

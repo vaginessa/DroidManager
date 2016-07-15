@@ -150,13 +150,18 @@
       <Name>NanoMvvm</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SplashScreen Include="splash.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="Obfuscate" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Exec Command="$(ProjectDir)AdditionalTools\bin\Confuser.CLI.exe -n $(ProjectDir)AdditionalTools\DroidManager.Windows.crproj" />
+  </Target>
 </Project>
