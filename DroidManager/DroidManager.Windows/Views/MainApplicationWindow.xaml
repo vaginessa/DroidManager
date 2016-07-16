@@ -43,9 +43,9 @@
                             </Border>
                             <materialMenu:MenuButton Text="Device">
                                 <materialMenu:MenuButton.Children>
-                                    <materialMenu:MenuButton Text="Overview"></materialMenu:MenuButton>
-                                    <materialMenu:MenuButton Text="Applications"></materialMenu:MenuButton>
-                                    <materialMenu:MenuButton Text="Backup"></materialMenu:MenuButton>
+                                    <materialMenu:MenuButton Text="Overview" SelectedCommand="{Binding LoadOverviewPageCommand}" />
+                                    <materialMenu:MenuButton Text="Applications" />
+                                    <materialMenu:MenuButton Text="Backup" Margin="-2,0,2,0" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                         </StackPanel>

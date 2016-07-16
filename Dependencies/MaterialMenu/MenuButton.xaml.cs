@@ -20,22 +20,23 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using NanoMvvm;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MaterialMenu
 {
     /// <summary>
     /// Interaction logic for MenuButton.xaml
     /// </summary>
-    public partial class MenuButton 
+    public partial class MenuButton : INotifyPropertyChanged
     {
         private bool _areChildrenVisible;
         //private Brush _originalBackgound;
@@ -78,13 +79,24 @@ namespace MaterialMenu
         typeof(List<MenuButton>),
         typeof(MenuButton));
 
+        public static DependencyProperty CommandProperty = DependencyProperty.Register(
+        nameof(SelectedCommand),
+        typeof(ICommand),
+        typeof(MenuButton));
+
+        public ICommand SelectedCommand
+        {
+            get { return (ICommand)GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); OnPropertyChanged(nameof(SelectedCommand)); }
+        }
+
         public MenuButton ParentButton { get; private set; }
 
         public TimeSpan AnimationSpeed
         {
             get { return (TimeSpan)GetValue(AnimationSpeedProperty); }
             set { SetValue(AnimationSpeedProperty, value); }
-        } 
+        }
 
         public string Text
         {
@@ -94,19 +106,19 @@ namespace MaterialMenu
 
         public SolidColorBrush HoverBackground
         {
-            get { return (SolidColorBrush) GetValue(HoverBackgroundProperty); }
+            get { return (SolidColorBrush)GetValue(HoverBackgroundProperty); }
             set { SetValue(HoverBackgroundProperty, value); }
         }
 
         public ImageSource Image
         {
-            get { return (ImageSource) GetValue(ImageProperty); }
+            get { return (ImageSource)GetValue(ImageProperty); }
             set { SetValue(ImageProperty, value); }
         }
 
         public UiTheme Theme
         {
-            get { return (UiTheme) GetValue(UiThemeProperty); }
+            get { return (UiTheme)GetValue(UiThemeProperty); }
             set
             {
                 SetValue(UiThemeProperty, value);
@@ -116,9 +128,11 @@ namespace MaterialMenu
                     case UiTheme.Light:
                         bm = new BitmapImage(new Uri(@"Images/Light24.png", UriKind.Relative));
                         break;
+
                     case UiTheme.Dark:
                         bm = new BitmapImage(new Uri(@"Images/Dark24.png", UriKind.Relative));
                         break;
+
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -129,13 +143,12 @@ namespace MaterialMenu
                 tb.Foreground = Theme == UiTheme.Light
                     ? Brushes.WhiteSmoke
                     : new SolidColorBrush { Color = Color.FromRgb(30, 30, 30) };
-
             }
         }
 
         public List<MenuButton> Children
         {
-            get { return (List<MenuButton>) GetValue(ChildrenProperty); }
+            get { return (List<MenuButton>)GetValue(ChildrenProperty); }
             set
             {
                 SetValue(ChildrenProperty, value);
@@ -150,6 +163,13 @@ namespace MaterialMenu
         }
 
         private double ExpandedHeight => Children.Count * ActualHeight + 5;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
 
         private void Expand(double units)
         {
@@ -214,6 +234,7 @@ namespace MaterialMenu
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Click?.Invoke(this, new EventArgs());
             if (Children.Count == 0) return;
             if (_areChildrenVisible)
             {
@@ -298,5 +319,7 @@ namespace MaterialMenu
             InitializeComponent();
             base.OnInitialized(e);
         }
+
+        public EventHandler<EventArgs> Click;
     }
 }
