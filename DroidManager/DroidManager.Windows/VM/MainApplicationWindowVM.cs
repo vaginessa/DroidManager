@@ -13,10 +13,18 @@ namespace DroidManager.Windows.VM
 
         public ICommand ViewLoadedCommand => new DelegateCommand(ViewLoaded);
 
-        private void ViewLoaded(object obj)
+        public ICommand LoadOverviewPageCommand => new DelegateCommand(LoadOverviewPage);
+
+        private void LoadOverviewPage(object obj)
         {
             _pageSwitcher = new PageSwitcherService(View.PageHost);
             _pageSwitcher.LoadPage<OverviewPage>();
+        }
+
+        private void ViewLoaded(object obj)
+        {
+            //_pageSwitcher = new PageSwitcherService(View.PageHost);
+            //_pageSwitcher.LoadPage<OverviewPage>();
         }
 
         public MainApplicationWindowVM()
