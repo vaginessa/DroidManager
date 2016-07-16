@@ -1,6 +1,7 @@
 ﻿//The MIT License(MIT)
 
-//Copyright(c) 2015 Alberto Rodriguez
+//Original code: Copyright(c) 2015 Alberto Rodriguez
+//Modifications: Copyright (c) 2016 0xFireball
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -44,6 +45,7 @@ namespace MaterialMenu
         public MenuButton()
         {
             InitializeComponent();
+            DataContext = this;
             Children = new List<MenuButton>();
             Theme = UiTheme.Light;
             AnimationSpeed = TimeSpan.FromMilliseconds(150);
@@ -79,15 +81,15 @@ namespace MaterialMenu
         typeof(List<MenuButton>),
         typeof(MenuButton));
 
-        public static DependencyProperty CommandProperty = DependencyProperty.Register(
+        public static DependencyProperty SelectedCommandProperty = DependencyProperty.Register(
         nameof(SelectedCommand),
         typeof(ICommand),
         typeof(MenuButton));
 
         public ICommand SelectedCommand
         {
-            get { return (ICommand)GetValue(CommandProperty); }
-            set { SetValue(CommandProperty, value); OnPropertyChanged(nameof(SelectedCommand)); }
+            get { return (ICommand)GetValue(SelectedCommandProperty); }
+            set { SetValue(SelectedCommandProperty, value); OnPropertyChanged(nameof(SelectedCommand)); }
         }
 
         public MenuButton ParentButton { get; private set; }
@@ -163,13 +165,6 @@ namespace MaterialMenu
         }
 
         private double ExpandedHeight => Children.Count * ActualHeight + 5;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
 
         private void Expand(double units)
         {
@@ -321,5 +316,14 @@ namespace MaterialMenu
         }
 
         public EventHandler<EventArgs> Click;
+
+        #region INotifyPropertyChanged Members
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
     }
 }
