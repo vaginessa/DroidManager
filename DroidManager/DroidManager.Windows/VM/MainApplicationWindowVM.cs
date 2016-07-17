@@ -18,17 +18,11 @@ namespace DroidManager.Windows.VM
             throw new NotImplementedException();
         }
 
-        private void LoadOverviewPage()
-        {
-            _pageSwitcher = new PageSwitcherService(View.PageHost);
-            _pageSwitcher.LoadPage<OverviewPage>();
-        }
-
         private void ViewDidLoad(object obj)
         {
             View.PageChanged += OnViewPageChanged;
-            //_pageSwitcher = new PageSwitcherService(View.PageHost);
-            //_pageSwitcher.LoadPage<OverviewPage>();
+            _pageSwitcher = new PageSwitcherService(View.PageHost);
+            LoadOverviewPage();
         }
 
         public MainApplicationWindowVM()
@@ -36,9 +30,39 @@ namespace DroidManager.Windows.VM
             PageSwitchMessage = new PaginationMessage();
         }
 
-        private void OnViewPageChanged(object sender, string e)
+        #region Page Loaders
+        private void OnViewPageChanged(object sender, string pageIdentifier)
         {
-            LoadOverviewPage();
+            switch (pageIdentifier)
+            {
+                case "Overview":
+                    LoadOverviewPage();
+                    break;
+
+                case "Applications":
+                    LoadApplicationsPage();
+                    break;
+
+                case "Backup":
+                    LoadBackupPage();
+                    break;
+            }
         }
+
+        private void LoadBackupPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadApplicationsPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadOverviewPage()
+        {
+            _pageSwitcher.LoadPage<OverviewPage>();
+        }
+        #endregion
     }
 }

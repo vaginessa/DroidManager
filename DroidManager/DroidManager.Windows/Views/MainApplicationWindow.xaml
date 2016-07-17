@@ -14,9 +14,9 @@
                       WindowStartupLocation="CenterScreen"
                       FontFamily="Roboto"
 
-                      Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
+                      Title="DroidManager" Height="480" Width="800" Icon="../logo.ico">
     <i:Interaction.Triggers>
-        <i:EventTrigger EventName="ContentRendered">
+        <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
@@ -32,7 +32,7 @@
                                    ClosingType="Manual"
                                    State="Visible" ShadowBackground="#00000000">
                 <materialMenu:SideMenu.Menu>
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Width="185">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" Margin="0,0,197,0.5">
                         <StackPanel Orientation="Vertical">
                             <Border Background="#FF1872BD" Height="80">
                                 <Grid Margin="10">

@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace NanoMvvm.Pagination
 {
@@ -11,17 +13,28 @@ namespace NanoMvvm.Pagination
             this.hostControl = hostWindow;
         }
 
+        private Dictionary<Type, object> PageCache = new Dictionary<Type, object>();
+
         public void LoadPage<T>() where T : UserControl, ISwitchablePage, new()
         {
-            var nextPage = new T();
-            hostControl.Content = nextPage;
+            LoadPage<T>(null);
         }
 
         public void LoadPage<T>(object state) where T : UserControl, new()
         {
-            var nextPage = new T();
-            hostControl.Content = nextPage;
-            (nextPage as ISwitchablePage)?.UtilizeState(state);
+            var pageTypeKey = typeof(T);
+            if (!PageCache.ContainsKey(pageTypeKey))
+            {
+                var nextPage = new T();
+                PageCache.Add(pageTypeKey, nextPage);
+                hostControl.Content = nextPage;
+                (nextPage as ISwitchablePage)?.UtilizeState(state);
+            }
+            else
+            {
+                //Page is cached, do not recreate
+                hostControl.Content = PageCache[pageTypeKey];
+            }
         }
     }
 }
