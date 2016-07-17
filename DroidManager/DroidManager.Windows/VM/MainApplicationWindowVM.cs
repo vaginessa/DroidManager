@@ -15,6 +15,13 @@ namespace DroidManager.Windows.VM
 
         public ICommand LoadOverviewPageCommand => new DelegateCommand(LoadOverviewPage);
 
+        public ICommand DeviceSelectedCommand => new DelegateCommand(DeviceSelected);
+
+        private void DeviceSelected(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         private void LoadOverviewPage(object obj)
         {
             _pageSwitcher = new PageSwitcherService(View.PageHost);

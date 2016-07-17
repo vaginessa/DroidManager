@@ -41,7 +41,7 @@
                                                Foreground="WhiteSmoke" FontWeight="Bold">DroidManager</TextBlock>
                                 </Grid>
                             </Border>
-                            <materialMenu:MenuButton Text="Device">
+                            <materialMenu:MenuButton Text="Device" SelectedCommand="{Binding DeviceSelectedCommand}">
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Overview" SelectedCommand="{Binding LoadOverviewPageCommand}" />
                                     <materialMenu:MenuButton Text="Applications" />
