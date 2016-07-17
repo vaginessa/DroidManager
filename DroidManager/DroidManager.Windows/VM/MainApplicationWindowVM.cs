@@ -11,25 +11,22 @@ namespace DroidManager.Windows.VM
         private PageSwitcherService _pageSwitcher;
         public PaginationMessage PageSwitchMessage;
 
-        public ICommand ViewLoadedCommand => new DelegateCommand(ViewLoaded);
-
-        public ICommand LoadOverviewPageCommand => new DelegateCommand(LoadOverviewPage);
-
-        public ICommand DeviceSelectedCommand => new DelegateCommand(DeviceSelected);
+        public ICommand ViewLoadedCommand => new DelegateCommand(ViewDidLoad);
 
         private void DeviceSelected(object obj)
         {
             throw new NotImplementedException();
         }
 
-        private void LoadOverviewPage(object obj)
+        private void LoadOverviewPage()
         {
             _pageSwitcher = new PageSwitcherService(View.PageHost);
             _pageSwitcher.LoadPage<OverviewPage>();
         }
 
-        private void ViewLoaded(object obj)
+        private void ViewDidLoad(object obj)
         {
+            View.PageChanged += OnViewPageChanged;
             //_pageSwitcher = new PageSwitcherService(View.PageHost);
             //_pageSwitcher.LoadPage<OverviewPage>();
         }
@@ -37,6 +34,11 @@ namespace DroidManager.Windows.VM
         public MainApplicationWindowVM()
         {
             PageSwitchMessage = new PaginationMessage();
+        }
+
+        private void OnViewPageChanged(object sender, string e)
+        {
+            LoadOverviewPage();
         }
     }
 }

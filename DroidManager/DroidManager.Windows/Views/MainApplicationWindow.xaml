@@ -13,7 +13,7 @@
                       Background="{DynamicResource MaterialDesignPaper}"
                       WindowStartupLocation="CenterScreen"
                       FontFamily="Roboto"
-                      
+
                       Title="DroidManager" Height="450.87" Width="753.914" Icon="../logo.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="ContentRendered">
@@ -32,7 +32,7 @@
                                    ClosingType="Manual"
                                    State="Visible" ShadowBackground="#00000000">
                 <materialMenu:SideMenu.Menu>
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,-0.5" Width="185">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Width="185">
                         <StackPanel Orientation="Vertical">
                             <Border Background="#FF1872BD" Height="80">
                                 <Grid Margin="10">
@@ -41,11 +41,12 @@
                                                Foreground="WhiteSmoke" FontWeight="Bold">DroidManager</TextBlock>
                                 </Grid>
                             </Border>
-                            <materialMenu:MenuButton Text="Device" SelectedCommand="{Binding DeviceSelectedCommand}">
+                            <!-- SelectedCommand="{Binding DeviceSelectedCommand}" -->
+                            <materialMenu:MenuButton Text="Device">
                                 <materialMenu:MenuButton.Children>
-                                    <materialMenu:MenuButton Text="Overview" SelectedCommand="{Binding LoadOverviewPageCommand}" />
-                                    <materialMenu:MenuButton Text="Applications" />
-                                    <materialMenu:MenuButton Text="Backup" Margin="-2,0,2,0" />
+                                    <materialMenu:MenuButton Text="Overview" MouseDown="overviewTab_MouseDown" />
+                                    <materialMenu:MenuButton Text="Applications" MouseDown="applicationsTab_MouseDown" />
+                                    <materialMenu:MenuButton Text="Backup" MouseDown="backupTab_MouseDown" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                         </StackPanel>
@@ -54,7 +55,7 @@
             </materialMenu:SideMenu>
         </Grid>
         <Grid Grid.Column="2">
-            <ContentControl Name="pageHost"/>
+            <ContentControl Name="pageHost" />
         </Grid>
     </Grid>
     <Window.DataContext>

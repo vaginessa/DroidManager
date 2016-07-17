@@ -1,6 +1,7 @@
-﻿using System.Windows;
+﻿using NanoMvvm.Pagination;
+using System;
+using System.Windows;
 using System.Windows.Controls;
-using NanoMvvm.Pagination;
 
 namespace DroidManager.Windows.Views
 {
@@ -12,9 +13,32 @@ namespace DroidManager.Windows.Views
         public MainApplicationWindow()
         {
             InitializeComponent();
+            (DataContext as PaginatingViewModel).View = this;
+            WirePageEvents();
+        }
+
+        private void WirePageEvents()
+        {
         }
 
         public Window WindowHandle => this;
         public ContentControl PageHost => pageHost;
+
+        public event EventHandler<string> PageChanged;
+
+        private void overviewTab_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Overview");
+        }
+
+        private void applicationsTab_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Applications");
+        }
+
+        private void backupTab_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Backup");
+        }
     }
 }
