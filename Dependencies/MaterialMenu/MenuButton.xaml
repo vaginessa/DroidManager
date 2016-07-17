@@ -6,13 +6,16 @@
              xmlns:local="clr-namespace:MaterialMenu"
              mc:Ignorable="d"
              x:Name="MenuButtonRoot"
+             DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=Color}"
              d:DesignHeight="300" d:DesignWidth="300"
              MouseEnter="MenuButtonBase_OnMouseEnter"
              MouseLeave="MenuButtonBase_OnMouseLeave">
-    <Grid x:Name="Grid" DataContext="{Binding ElementName=MenuButtonRoot}">
+    <Grid x:Name="Grid">
+        <!--
         <Grid.InputBindings>
-            <MouseBinding Command="{Binding SelectedCommand}" MouseAction="LeftClick" />
+            <MouseBinding Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MenuButton}}, Path=SelectedCommand}" MouseAction="LeftClick" />
         </Grid.InputBindings>
+        -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="25" />

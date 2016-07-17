@@ -21,10 +21,8 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using NanoMvvm;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -37,7 +35,7 @@ namespace MaterialMenu
     /// <summary>
     /// Interaction logic for MenuButton.xaml
     /// </summary>
-    public partial class MenuButton : INotifyPropertyChanged
+    public partial class MenuButton
     {
         private bool _areChildrenVisible;
         //private Brush _originalBackgound;
@@ -45,7 +43,6 @@ namespace MaterialMenu
         public MenuButton()
         {
             InitializeComponent();
-            DataContext = this;
             Children = new List<MenuButton>();
             Theme = UiTheme.Light;
             AnimationSpeed = TimeSpan.FromMilliseconds(150);
@@ -64,6 +61,16 @@ namespace MaterialMenu
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
         "Text",
         typeof(string),
+        typeof(MenuButton));
+
+        public static readonly DependencyProperty ClickProperty = DependencyProperty.Register(
+        "Click",
+        typeof(EventHandler),
+        typeof(MenuButton));
+
+        public static readonly DependencyProperty SelectedActionProperty = DependencyProperty.Register(
+        "SelectedAction",
+        typeof(Action),
         typeof(MenuButton));
 
         public static readonly DependencyProperty AnimationSpeedProperty = DependencyProperty.Register(
@@ -86,10 +93,22 @@ namespace MaterialMenu
         typeof(ICommand),
         typeof(MenuButton));
 
+        public Action SelectedAction
+        {
+            get { return (Action)GetValue(SelectedActionProperty); }
+            set { SetValue(SelectedActionProperty, value); }
+        }
+
         public ICommand SelectedCommand
         {
             get { return (ICommand)GetValue(SelectedCommandProperty); }
-            set { SetValue(SelectedCommandProperty, value); OnPropertyChanged(nameof(SelectedCommand)); }
+            set { SetValue(SelectedCommandProperty, value); }
+        }
+
+        public EventHandler Click
+        {
+            get { return (EventHandler)GetValue(ClickProperty); }
+            set { SetValue(ClickProperty, value); }
         }
 
         public MenuButton ParentButton { get; private set; }
@@ -314,16 +333,5 @@ namespace MaterialMenu
             InitializeComponent();
             base.OnInitialized(e);
         }
-
-        public EventHandler<EventArgs> Click;
-
-        #region INotifyPropertyChanged Members
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-        #endregion
     }
 }
