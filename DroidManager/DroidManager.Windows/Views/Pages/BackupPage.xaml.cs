@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace DroidManager.Windows.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for ApplicationsPage.xaml
+    /// Interaction logic for BackupPage.xaml
     /// </summary>
-    public partial class ApplicationsPage : UserControl, ISwitchablePage
+    public partial class BackupPage : UserControl, ISwitchablePage
     {
-        public ApplicationsPage()
+        public BackupPage()
         {
             InitializeComponent();
         }

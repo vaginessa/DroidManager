@@ -51,12 +51,12 @@ namespace DroidManager.Windows.VM
 
         private void LoadBackupPage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<BackupPage>();
         }
 
         private void LoadApplicationsPage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<ApplicationsPage>();
         }
 
         private void LoadOverviewPage()

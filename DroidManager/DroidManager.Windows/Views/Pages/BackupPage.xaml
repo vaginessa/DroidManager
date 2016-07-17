@@ -1,13 +1,12 @@
-﻿<UserControl x:Class="DroidManager.Windows.Views.Pages.OverviewPage"
+﻿<UserControl x:Class="DroidManager.Windows.Views.Pages.BackupPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DroidManager.Windows.Views.Pages"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="40,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-
+            
     </Grid>
 </UserControl>
