@@ -22,7 +22,7 @@
     </Grid>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Name="btnVersion" Content="v0.2" Command="{Binding ViewAboutCommand}"/>
+            <Button Name="btnVersion" Content="{Binding ApplicationVersion}" Command="{Binding ViewAboutCommand}"/>
             <Button Name="btnIIon" Content="IridiumIon Software" FontSize="14" Command="{Binding VisitIridiumIonSiteCommand}"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>

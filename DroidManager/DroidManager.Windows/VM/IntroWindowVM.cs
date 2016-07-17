@@ -3,11 +3,14 @@ using System.Windows.Input;
 using DroidManager.Core.States;
 using System;
 using DroidManager.Windows.Views;
+using System.Reflection;
 
 namespace DroidManager.Windows.VM
 {
     class IntroWindowVM : ViewModelBase
     {
+        public string ApplicationVersion => $"v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+
         private IntroState _introStateModel = new IntroState();
 
         public ICommand VisitIridiumIonSiteCommand => new DelegateCommand(VisitIridiumIonSite);

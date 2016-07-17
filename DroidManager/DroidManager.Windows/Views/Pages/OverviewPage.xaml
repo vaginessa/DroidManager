@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="40,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Overview" VerticalAlignment="Top" Height="37" Width="182" FontSize="22" FontWeight="Bold"/>
+        
     </Grid>
 </UserControl>
