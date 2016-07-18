@@ -38,7 +38,7 @@ namespace DroidManager.Windows.VM
 
         #region Page Loaders
 
-        private async void OnViewPageChanged(object sender,string pageIdentifier)
+        private async void OnViewPageChanged(object sender, string pageIdentifier)
         {
             if (AndroidDeviceConnection.OverviewState.CurrentDevice != null)
             {
