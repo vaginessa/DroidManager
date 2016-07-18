@@ -3,6 +3,7 @@ using NanoMvvm;
 using NanoMvvm.Pagination;
 using System.Windows.Input;
 using System;
+using DroidManager.Core;
 
 namespace DroidManager.Windows.VM
 {
@@ -12,6 +13,8 @@ namespace DroidManager.Windows.VM
         public PaginationMessage PageSwitchMessage;
 
         public ICommand ViewLoadedCommand => new DelegateCommand(ViewDidLoad);
+
+        public bool DeviceAvailable => AndroidDeviceConnection.OverviewState?.CurrentDevice != null;
 
         private void DeviceSelected(object obj)
         {
@@ -23,6 +26,7 @@ namespace DroidManager.Windows.VM
             View.PageChanged += OnViewPageChanged;
             _pageSwitcher = new PageSwitcherService(View.PageHost);
             LoadOverviewPage();
+            OnPropertyChanged(nameof(DeviceAvailable));
         }
 
         public MainApplicationWindowVM()
