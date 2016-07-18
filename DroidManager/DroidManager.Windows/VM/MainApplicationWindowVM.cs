@@ -1,9 +1,11 @@
-﻿using DroidManager.Windows.Views.Pages;
+﻿using DroidManager.Core;
+using DroidManager.Windows.Views.Pages;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using NanoMvvm.Pagination;
-using System.Windows.Input;
 using System;
-using DroidManager.Core;
+using System.Windows.Input;
 
 namespace DroidManager.Windows.VM
 {
@@ -35,33 +37,41 @@ namespace DroidManager.Windows.VM
         }
 
         #region Page Loaders
-        private void OnViewPageChanged(object sender, string pageIdentifier)
+
+        private async void OnViewPageChanged(object sender, string pageIdentifier)
         {
-            switch (pageIdentifier)
+            if (AndroidDeviceConnection.OverviewState.CurrentDevice != null)
             {
-                case "Overview":
-                    LoadOverviewPage();
-                    break;
+                switch (pageIdentifier)
+                {
+                    case "Overview":
+                        LoadOverviewPage();
+                        break;
 
-                case "Applications":
-                    LoadApplicationsPage();
-                    break;
+                    case "Applications":
+                        LoadApplicationsPage();
+                        break;
 
-                case "Backup":
-                    LoadBackupPage();
-                    break;
+                    case "Backup":
+                        LoadBackupPage();
+                        break;
 
-                case "File Transfer":
-                    LoadFileTransferPage();
-                    break;
+                    case "File Transfer":
+                        LoadFileTransferPage();
+                        break;
 
-                case "Battery":
-                    LoadBatteryPage();
-                    break;
+                    case "Battery":
+                        LoadBatteryPage();
+                        break;
 
-                case "Advanced Boot":
-                    LoadAdvancedBootPage();
-                    break;
+                    case "Advanced Boot":
+                        LoadAdvancedBootPage();
+                        break;
+                }
+            }
+            else
+            {
+                await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
             }
         }
 
@@ -94,6 +104,7 @@ namespace DroidManager.Windows.VM
         {
             _pageSwitcher.LoadPage<OverviewPage>();
         }
-        #endregion
+
+        #endregion Page Loaders
     }
 }

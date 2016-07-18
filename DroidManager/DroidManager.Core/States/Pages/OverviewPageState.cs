@@ -1,5 +1,6 @@
 ﻿using DroidManager.Core.Classes;
 using SharpAdbClient;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -69,6 +70,15 @@ namespace DroidManager.Core.States.Pages
             {
                 CurrentDevice = null;
             }
+            if (ConnectedDevices.Count == 0)
+            {
+                NoDevicesAvailable?.Invoke(this, null);
+            }
+        }
+
+        internal void TriggerNoDevicesAvailable()
+        {
+            NoDevicesAvailable?.Invoke(this, null);
         }
 
         private void Monitor_DeviceConnected(object sender, DeviceDataEventArgs e)
@@ -80,5 +90,7 @@ namespace DroidManager.Core.States.Pages
             ConnectedDevices.Add(newDevice);
             CurrentDevice = newDevice;
         }
+
+        public event EventHandler NoDevicesAvailable;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DroidManager.Core;
 using DroidManager.Core.Classes;
 using DroidManager.Core.States.Pages;
+using DroidManager.Windows.Views.Pages;
 using NanoMvvm;
 using NanoMvvm.Pagination;
 using System.Collections.ObjectModel;
@@ -23,6 +24,12 @@ namespace DroidManager.Windows.VM.Pages
         {
             _pageState = new OverviewPageState(Properties.Settings.Default.adbExecutablePath);
             AndroidDeviceConnection.OverviewState = _pageState;
+            _pageState.NoDevicesAvailable += OnPageStateNoDevicesAvailable;
+        }
+
+        private void OnPageStateNoDevicesAvailable(object sender, System.EventArgs e)
+        {
+            PageView.SwitcherService.LoadPage<OverviewPage>(false);
         }
 
         public string ConnectionStatusString => _pageState.ConnectionStatusString;
