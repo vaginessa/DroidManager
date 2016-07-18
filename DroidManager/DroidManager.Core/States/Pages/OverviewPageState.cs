@@ -24,8 +24,11 @@ namespace DroidManager.Core.States.Pages
                 _currentDevice = value;
                 //Set ADB target to latest device
                 AdbClient.Instance.SetDevice(new AdbSocket(AdbServer.Instance.EndPoint), _currentDevice.DeviceHandle);
+                CurrentDeviceInformationService = new AndroidDeviceInformationService(CurrentDevice);
             }
         }
+
+        public AndroidDeviceInformationService CurrentDeviceInformationService { get; set; }
 
         public OverviewPageState(string adbExecutablePath)
         {

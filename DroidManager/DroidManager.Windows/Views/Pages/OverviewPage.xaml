@@ -15,6 +15,9 @@
             </ComboBox.SelectedValue>
         </ComboBox>
         <TextBlock x:Name="connectionStatus" HorizontalAlignment="Left" Margin="260,82,0,0" TextWrapping="Wrap" Text="{Binding ConnectionStatusString}" VerticalAlignment="Top" Height="20" Width="183"/>
+        <TextBlock x:Name="propertiesHeaderBlock" HorizontalAlignment="Left" Margin="40,147,0,0" TextWrapping="Wrap" Text="Device Information" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="deviceNameText" HorizontalAlignment="Left" Margin="40,202,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceNameInformation}" VerticalAlignment="Top"/>
+
 
     </Grid>
     <UserControl.DataContext>

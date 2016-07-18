@@ -33,5 +33,7 @@ namespace DroidManager.Windows.VM.Pages
                 OnPropertyChanged(nameof(CurrentlySelectedDevice));
             }
         }
+
+        public AndroidDeviceInformationService CurrentDeviceInformationService => _pageState.CurrentDeviceInformationService;
     }
 }
