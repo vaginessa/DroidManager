@@ -4,23 +4,24 @@ namespace DroidManager.Core.Classes
 {
     public class AndroidDevice
     {
-        public DeviceData DeviceHandle { get; }
+        public DeviceData DeviceMetadata { get; }
+        public Device DeviceConnection;
         public string StatusText { get; private set; }
         public string DeviceName { get; private set; }
 
         public AndroidDevice(DeviceData deviceHandle)
         {
-            DeviceHandle = deviceHandle;
+            DeviceMetadata = deviceHandle;
             var state = deviceHandle.State;
             StatusText = $"Device connected in {state.ToString().ToLowerInvariant()} mode.";
-
+            DeviceConnection = new Device(DeviceMetadata);
             //Set properties
-            DeviceName = DeviceHandle.Name;
+            DeviceName = DeviceMetadata.Name;
         }
 
         public override string ToString()
         {
-            return $"{DeviceHandle.Name} ({DeviceHandle.Serial})";
+            return $"{DeviceMetadata.Name} ({DeviceMetadata.Serial})";
         }
     }
 }

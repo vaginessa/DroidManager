@@ -23,7 +23,7 @@ namespace DroidManager.Core.States.Pages
             {
                 _currentDevice = value;
                 //Set ADB target to latest device
-                AdbClient.Instance.SetDevice(new AdbSocket(AdbServer.Instance.EndPoint), _currentDevice.DeviceHandle);
+                AdbClient.Instance.SetDevice(new AdbSocket(AdbServer.Instance.EndPoint), _currentDevice.DeviceMetadata);
                 CurrentDeviceInformationService = new AndroidDeviceInformationService(CurrentDevice);
             }
         }
@@ -60,12 +60,12 @@ namespace DroidManager.Core.States.Pages
         {
             string disconnectedDeviceSerial = e.Device.Serial;
             //Match by serial rather than identity
-            var currentDevice = ConnectedDevices.Where(connectedDevice => connectedDevice.DeviceHandle.Serial == disconnectedDeviceSerial).ToArray()[0];
+            var currentDevice = ConnectedDevices.Where(connectedDevice => connectedDevice.DeviceMetadata.Serial == disconnectedDeviceSerial).ToArray()[0];
             ConnectedDevices.Remove(currentDevice);
             currentDevice = null; //Dereference
 
             //Dereference current device if IDs match
-            if (CurrentDevice.DeviceHandle.Serial == disconnectedDeviceSerial)
+            if (CurrentDevice.DeviceMetadata.Serial == disconnectedDeviceSerial)
             {
                 CurrentDevice = null;
             }

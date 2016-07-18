@@ -45,5 +45,15 @@ namespace DroidManager.Windows.Views
         {
             PageChanged?.Invoke(this, "File Transfer");
         }
+
+        private void batteryTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Battery");
+        }
+
+        private void advancedBoot_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Advanced Boot");
+        }        
     }
 }

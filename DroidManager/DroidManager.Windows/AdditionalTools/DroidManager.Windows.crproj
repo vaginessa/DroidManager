@@ -11,4 +11,5 @@
   <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MaterialMenu.dll" />
   <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\NanoMvvm.Wpf.dll" />
   <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\System.Windows.Interactivity.dll" />
+  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\ADKonnect.dll" snKey="..\..\..\SharpAdbClient\SharpAdbClient.snk" />
 </project>

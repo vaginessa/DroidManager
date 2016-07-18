@@ -50,7 +50,25 @@ namespace DroidManager.Windows.VM
                 case "File Transfer":
                     LoadFileTransferPage();
                     break;
+
+                case "Battery":
+                    LoadBatteryPage();
+                    break;
+
+                case "Advanced Boot":
+                    LoadAdvancedBootPage();
+                    break;
             }
+        }
+
+        private void LoadAdvancedBootPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadBatteryPage()
+        {
+            _pageSwitcher.LoadPage<BatteryPage>();
         }
 
         private void LoadFileTransferPage()

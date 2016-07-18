@@ -112,6 +112,9 @@
     <Compile Include="Views\Pages\BackupPage.xaml.cs">
       <DependentUpon>BackupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\BatteryPage.xaml.cs">
+      <DependentUpon>BatteryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,7 @@
     <Compile Include="VM\IntroWindowVM.cs" />
     <Compile Include="VM\MainApplicationWindowVM.cs" />
     <Compile Include="VM\Pages\ApplicationsPageVM.cs" />
+    <Compile Include="VM\Pages\BatteryPageVM.cs" />
     <Compile Include="VM\Pages\OverviewPageVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\BackupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\BatteryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

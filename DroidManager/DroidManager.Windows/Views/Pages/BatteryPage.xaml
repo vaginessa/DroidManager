@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="DroidManager.Windows.Views.Pages.BatteryPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DroidManager.Windows.Views.Pages"
+             mc:Ignorable="d"
+             xmlns:pagevm="clr-namespace:DroidManager.Windows.VM.Pages"
+             d:DesignHeight="480" d:DesignWidth="600">
+    <UserControl.DataContext>
+        <pagevm:BatteryPageVM />
+    </UserControl.DataContext>
+    <Grid>
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Battery Information" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="refreshDevicesButton" Content="Refresh" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="90" Command="{Binding ReloadViewCommand}"/>
+        
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="40,150,0,0" TextWrapping="Wrap" Text="{Binding BatteryPercentageText, Mode=OneWay}" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</UserControl>

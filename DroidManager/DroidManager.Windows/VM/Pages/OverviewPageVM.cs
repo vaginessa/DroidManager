@@ -1,14 +1,10 @@
-﻿using DroidManager.Core.Classes;
+﻿using DroidManager.Core;
+using DroidManager.Core.Classes;
 using DroidManager.Core.States.Pages;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using NanoMvvm.Pagination;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System;
-using DroidManager.Core;
 
 namespace DroidManager.Windows.VM.Pages
 {

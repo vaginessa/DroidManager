@@ -50,6 +50,17 @@
                                     <materialMenu:MenuButton Text="File Transfer" MouseDown="fileTransferTab_MouseDown" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
+                            <materialMenu:MenuButton Text="Diagnostics">
+                                <materialMenu:MenuButton.Children>
+                                    <materialMenu:MenuButton Text="Battery" MouseDown="batteryTab_mouseDown" />
+                                    <materialMenu:MenuButton Text="Advanced Boot" MouseDown="advancedBoot_mouseDown" />
+                                </materialMenu:MenuButton.Children>
+                            </materialMenu:MenuButton>
+                            <materialMenu:MenuButton Text="Advanced">
+                                <materialMenu:MenuButton.Children>
+                                    <materialMenu:MenuButton Text="Recovery Update" />
+                                </materialMenu:MenuButton.Children>
+                            </materialMenu:MenuButton>
                         </StackPanel>
                     </ScrollViewer>
                 </materialMenu:SideMenu.Menu>
