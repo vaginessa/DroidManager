@@ -58,6 +58,7 @@
     <Compile Include="Pagination\PageSwitcherService.cs" />
     <Compile Include="Pagination\PaginatingViewModel.cs" />
     <Compile Include="Pagination\PaginationMessage.cs" />
+    <Compile Include="Pagination\SwitchablePageViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextMessage.cs" />

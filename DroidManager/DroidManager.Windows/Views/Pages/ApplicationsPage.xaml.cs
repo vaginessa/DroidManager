@@ -24,10 +24,13 @@ namespace DroidManager.Windows.Views.Pages
         public ApplicationsPage()
         {
             InitializeComponent();
+            (DataContext as SwitchablePageViewModel).PageView = this;
         }
 
         public void UtilizeState(object state)
         {
         }
+
+        public Window HostView => Window.GetWindow(this);
     }
 }

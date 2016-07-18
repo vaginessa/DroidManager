@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpAdbClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace DroidManager.Core.States.Pages
     {
         public string ConnectionStatusString => "Device not detected.";
 
-        public OverviewPageState()
+        public OverviewPageState(string adbExecutablePath)
         {
-            
+            var result = AdbServer.Instance.StartServer(adbExecutablePath, true);
         }
     }
 }

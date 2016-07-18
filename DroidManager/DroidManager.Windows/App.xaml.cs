@@ -17,6 +17,7 @@ namespace DroidManager.Windows
         protected override void OnStartup(StartupEventArgs e)
         {
             //Upgrade settings
+
             if (DroidManager.Windows.Properties.Settings.Default.upgradeRequired)
             {
                 DroidManager.Windows.Properties.Settings.Default.Upgrade();

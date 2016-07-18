@@ -1,4 +1,5 @@
 ﻿using DroidManager.Core.States;
+using DroidManager.Core.Utilities;
 using DroidManager.Windows.Views;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -58,17 +59,18 @@ namespace DroidManager.Windows.VM
             {
                 //Adb was not available. Ask now.
                 string inputAdbPath = await (View as MetroWindow).ShowInputAsync("Please enter the full path to or containing folder of the ADB executable", "DroidManager uses ADB to communicate with your device. Please enter the full path to the ADB executable.");
-                if (!String.IsNullOrWhiteSpace(inputAdbPath) && SmartFindAdb(ref inputAdbPath))
+                //Verify ADB executable
+                if (!String.IsNullOrWhiteSpace(inputAdbPath) && SmartFindAdb(ref inputAdbPath) && AdbChecker.VerifyAdbExecutable(inputAdbPath))
                 {
                     //Adb has been verified, save new settings
                     Properties.Settings.Default.adbExecutablePath = inputAdbPath;
                     Properties.Settings.Default.Save();
-                    await (View as MetroWindow).ShowMessageAsync("Success", "An ADB executable was found.");
+                    await (View as MetroWindow).ShowMessageAsync("Success", "We're all set! We found a working ADB executable!");
                     return true; //Success
                 }
                 else
                 {
-                    await (View as MetroWindow).ShowMessageAsync("Error", "The path was invalid.");
+                    await (View as MetroWindow).ShowMessageAsync("Error", "Sorry, we couldn't find a valid ADB executable in that path.");
                     return false; //Validation failure
                 }
             }
