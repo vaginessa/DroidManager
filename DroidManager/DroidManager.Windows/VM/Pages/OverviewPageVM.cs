@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System;
+using DroidManager.Core;
 
 namespace DroidManager.Windows.VM.Pages
 {
@@ -25,6 +26,7 @@ namespace DroidManager.Windows.VM.Pages
         public OverviewPageVM()
         {
             _pageState = new OverviewPageState(Properties.Settings.Default.adbExecutablePath);
+            AndroidDeviceConnection.OverviewState = _pageState;
         }
 
         public string ConnectionStatusString => _pageState.ConnectionStatusString;

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidDeviceConnection.cs" />
     <Compile Include="Classes\AndroidDevice.cs" />
     <Compile Include="Classes\AndroidDeviceInformationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

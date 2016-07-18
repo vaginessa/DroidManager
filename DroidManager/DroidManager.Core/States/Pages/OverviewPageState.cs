@@ -2,8 +2,6 @@
 using SharpAdbClient;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
-using System;
 
 namespace DroidManager.Core.States.Pages
 {
@@ -37,10 +35,11 @@ namespace DroidManager.Core.States.Pages
             InitializeAdbConnection(adbExecutablePath);
         }
 
-        private async void InitializeAdbConnection(string adbExecutablePath)
+        private void InitializeAdbConnection(string adbExecutablePath)
         {
             //Start ADB server (on task because it can block a bit)
-            var result = await Task.Run(() => AdbServer.Instance.StartServer(adbExecutablePath, true));
+            var result = AdbServer.Instance.StartServer(adbExecutablePath, true);
+            //var result = await Task.Run(() => AdbServer.Instance.StartServer(adbExecutablePath, true));
 
             //Start ADB monitor
 
