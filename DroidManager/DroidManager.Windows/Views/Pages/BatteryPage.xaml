@@ -14,8 +14,12 @@
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Battery Information" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="refreshDevicesButton" Content="Refresh" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="90" Command="{Binding ReloadViewCommand}"/>
         
-        
-        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,150,0,0" TextWrapping="Wrap" Text="{Binding BatteryPercentageText}" VerticalAlignment="Top" Width="120"/>
+        <!--Stats-->
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,150,0,0" TextWrapping="Wrap" Text="{Binding BatteryPercentageText}" VerticalAlignment="Top" Width="240"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,180,0,0" TextWrapping="Wrap" Text="{Binding BatteryScaleText}" VerticalAlignment="Top" Width="240"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,210,0,0" TextWrapping="Wrap" Text="{Binding BatteryVoltageText}" VerticalAlignment="Top" Width="240"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,240,0,0" TextWrapping="Wrap" Text="{Binding BatteryTemperatureText}" VerticalAlignment="Top" Width="240"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,270,0,0" TextWrapping="Wrap" Text="{Binding BatteryTypeText}" VerticalAlignment="Top" Width="240"/>
 
     </Grid>
 </UserControl>

@@ -18,5 +18,13 @@ namespace DroidManager.Windows.VM.Pages
         }
 
         public string BatteryPercentageText => $"Battery Level: {_pageState.BatteryPercentage}%";
+
+        public string BatteryScaleText => $"Battery Scale: {_pageState.BatteryScale}";
+
+        public string BatteryVoltageText => $"Battery Voltage: {_pageState.BatteryVoltage} mV";
+
+        public string BatteryTemperatureText => $"Battery Temperature: {_pageState.BatteryTemperature} °C";
+
+        public string BatteryTypeText => $"Battery Type: {_pageState.BatteryType}";
     }
 }

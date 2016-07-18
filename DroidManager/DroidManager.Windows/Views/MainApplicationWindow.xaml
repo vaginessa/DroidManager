@@ -59,6 +59,7 @@
                             <materialMenu:MenuButton Text="Advanced">
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Recovery Update" />
+                                    <materialMenu:MenuButton Text="Terminal" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                         </StackPanel>

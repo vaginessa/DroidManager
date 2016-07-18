@@ -38,7 +38,7 @@ namespace DroidManager.Windows.VM
 
         #region Page Loaders
 
-        private async void OnViewPageChanged(object sender, string pageIdentifier)
+        private async void OnViewPageChanged(object sender,string pageIdentifier)
         {
             if (AndroidDeviceConnection.OverviewState.CurrentDevice != null)
             {
@@ -67,12 +67,21 @@ namespace DroidManager.Windows.VM
                     case "Advanced Boot":
                         LoadAdvancedBootPage();
                         break;
+
+                    case "Terminal":
+                        LoadTerminalPage();
+                        break;
                 }
             }
             else
             {
                 await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
             }
+        }
+
+        private void LoadTerminalPage()
+        {
+            _pageSwitcher.LoadPage<TerminalPage>();
         }
 
         private void LoadAdvancedBootPage()
