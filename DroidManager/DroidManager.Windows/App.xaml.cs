@@ -16,6 +16,13 @@ namespace DroidManager.Windows
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            //Upgrade settings
+            if (DroidManager.Windows.Properties.Settings.Default.upgradeRequired)
+            {
+                DroidManager.Windows.Properties.Settings.Default.Upgrade();
+                DroidManager.Windows.Properties.Settings.Default.upgradeRequired = false;
+            }
+
             PresentationTraceSources.Refresh();
             PresentationTraceSources.DataBindingSource.Listeners.Add(new ConsoleTraceListener());
             PresentationTraceSources.DataBindingSource.Listeners.Add(new DebugTraceListener());

@@ -6,6 +6,7 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:local="clr-namespace:DroidManager.Windows.Views"
                       xmlns:vm="clr-namespace:DroidManager.Windows.VM"
+                      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                       mc:Ignorable="d"
                       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                       Background="{DynamicResource MaterialDesignPaper}"
@@ -13,6 +14,11 @@
                       FontFamily="Roboto"
                       ResizeMode="CanMinimize"
                       Title="DroidManager" Height="386.495" Width="602.664" Icon="../logo.ico">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.DataContext>
         <vm:IntroWindowVM />
     </Window.DataContext>

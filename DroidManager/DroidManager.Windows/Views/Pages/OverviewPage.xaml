@@ -4,10 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DroidManager.Windows.Views.Pages"
+             xmlns:pagevm="clr-namespace:DroidManager.Windows.VM.Pages"
              mc:Ignorable="d"
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Overview" VerticalAlignment="Top" Height="37" Width="182" FontSize="22" FontWeight="Bold"/>
-        
+        <ComboBox x:Name="deviceChooser" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Width="183" Height="37"/>
+        <TextBlock x:Name="connectionStatus" HorizontalAlignment="Left" Margin="260,82,0,0" TextWrapping="Wrap" Text="{Binding ConnectionStatusString}" VerticalAlignment="Top" Height="20" Width="183"/>
+
     </Grid>
+    <UserControl.DataContext>
+        <pagevm:OverviewPageVM />
+    </UserControl.DataContext>
 </UserControl>

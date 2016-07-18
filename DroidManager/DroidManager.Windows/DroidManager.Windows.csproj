@@ -118,6 +118,7 @@
     <Compile Include="VM\AboutWindowVM.cs" />
     <Compile Include="VM\IntroWindowVM.cs" />
     <Compile Include="VM\MainApplicationWindowVM.cs" />
+    <Compile Include="VM\Pages\OverviewPageVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -194,9 +195,7 @@
   <ItemGroup>
     <SplashScreen Include="splash.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VM\Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
