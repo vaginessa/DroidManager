@@ -118,6 +118,7 @@
     <Compile Include="VM\AboutWindowVM.cs" />
     <Compile Include="VM\IntroWindowVM.cs" />
     <Compile Include="VM\MainApplicationWindowVM.cs" />
+    <Compile Include="VM\Pages\ApplicationsPageVM.cs" />
     <Compile Include="VM\Pages\OverviewPageVM.cs" />
   </ItemGroup>
   <ItemGroup>

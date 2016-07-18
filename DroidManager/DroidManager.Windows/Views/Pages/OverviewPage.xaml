@@ -9,7 +9,11 @@
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Overview" VerticalAlignment="Top" Height="37" Width="182" FontSize="22" FontWeight="Bold"/>
-        <ComboBox x:Name="deviceChooser" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Width="183" Height="37"/>
+        <ComboBox x:Name="deviceChooser" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Width="183" Height="37" ItemsSource="{Binding AvailableDevices}">
+            <ComboBox.SelectedValue>
+                <Binding Path="CurrentlySelectedDevice" Mode="TwoWay" UpdateSourceTrigger="Explicit" />
+            </ComboBox.SelectedValue>
+        </ComboBox>
         <TextBlock x:Name="connectionStatus" HorizontalAlignment="Left" Margin="260,82,0,0" TextWrapping="Wrap" Text="{Binding ConnectionStatusString}" VerticalAlignment="Top" Height="20" Width="183"/>
 
     </Grid>
