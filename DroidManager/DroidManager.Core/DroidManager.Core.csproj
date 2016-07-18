@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AndroidDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\AboutState.cs" />
     <Compile Include="States\IntroState.cs" />

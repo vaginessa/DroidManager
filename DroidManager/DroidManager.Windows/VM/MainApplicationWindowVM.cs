@@ -46,7 +46,16 @@ namespace DroidManager.Windows.VM
                 case "Backup":
                     LoadBackupPage();
                     break;
+
+                case "File Transfer":
+                    LoadFileTransferPage();
+                    break;
             }
+        }
+
+        private void LoadFileTransferPage()
+        {
+            throw new NotImplementedException();
         }
 
         private void LoadBackupPage()

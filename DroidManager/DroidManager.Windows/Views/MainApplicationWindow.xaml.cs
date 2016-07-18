@@ -40,5 +40,10 @@ namespace DroidManager.Windows.Views
         {
             PageChanged?.Invoke(this, "Backup");
         }
+
+        private void fileTransferTab_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "File Transfer");
+        }
     }
 }
