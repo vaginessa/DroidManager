@@ -10,6 +10,7 @@ namespace DroidManager.Core.Classes
     {
         public AndroidDevice Device { get; }
         public string DeviceNameInformation => $"Device name: {Device.DeviceName}";
+        public string DeviceSerialInformation => $"Device serial identifier: {Device.DeviceHandle.Serial}";
 
         public AndroidDeviceInformationService(AndroidDevice device)
         {

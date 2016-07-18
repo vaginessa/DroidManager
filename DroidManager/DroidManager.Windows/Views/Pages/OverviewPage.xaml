@@ -5,11 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DroidManager.Windows.Views.Pages"
              xmlns:pagevm="clr-namespace:DroidManager.Windows.VM.Pages"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d"
              d:DesignHeight="480" d:DesignWidth="600">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Overview" VerticalAlignment="Top" Height="37" Width="182" FontSize="22" FontWeight="Bold"/>
-        <ComboBox x:Name="deviceChooser" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Width="183" Height="37" ItemsSource="{Binding AvailableDevices}">
+        <ComboBox x:Name="deviceChooser" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Width="183" Height="37" ItemsSource="{Binding AvailableDevices, UpdateSourceTrigger=PropertyChanged}">
             <ComboBox.SelectedValue>
                 <Binding Path="CurrentlySelectedDevice" Mode="TwoWay" UpdateSourceTrigger="Explicit" />
             </ComboBox.SelectedValue>
@@ -17,6 +23,7 @@
         <TextBlock x:Name="connectionStatus" HorizontalAlignment="Left" Margin="260,82,0,0" TextWrapping="Wrap" Text="{Binding ConnectionStatusString}" VerticalAlignment="Top" Height="20" Width="183"/>
         <TextBlock x:Name="propertiesHeaderBlock" HorizontalAlignment="Left" Margin="40,147,0,0" TextWrapping="Wrap" Text="Device Information" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="deviceNameText" HorizontalAlignment="Left" Margin="40,202,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceNameInformation}" VerticalAlignment="Top"/>
+        <Button x:Name="refreshDevicesButton" Content="Refresh Devices" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="182" Command="{Binding ReloadViewCommand}"/>
 
 
     </Grid>

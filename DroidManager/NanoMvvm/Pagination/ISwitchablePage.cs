@@ -11,5 +11,6 @@ namespace NanoMvvm.Pagination
     {
         void UtilizeState(object state);
         Window HostView { get; }
+        PageSwitcherService SwitcherService { get; set; }
     }
 }

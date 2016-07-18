@@ -1,7 +1,8 @@
 ﻿using DroidManager.Core.Classes;
 using SharpAdbClient;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DroidManager.Core.States.Pages
 {
@@ -9,8 +10,8 @@ namespace DroidManager.Core.States.Pages
     {
         public string ConnectionStatusString => CurrentDevice?.StatusText ?? "Device not detected.";
 
-        public List<AndroidDevice> ConnectedDevices { get; } = new List<AndroidDevice>();
-        AndroidDevice _currentDevice;
+        public ObservableCollection<AndroidDevice> ConnectedDevices { get; } = new ObservableCollection<AndroidDevice>();
+        private AndroidDevice _currentDevice;
 
         public AndroidDevice CurrentDevice
         {
@@ -52,9 +53,17 @@ namespace DroidManager.Core.States.Pages
 
         private void Monitor_DeviceDisconnected(object sender, DeviceDataEventArgs e)
         {
+            string disconnectedDeviceSerial = e.Device.Serial;
             //Match by serial rather than identity
-            var currentDevice = ConnectedDevices.Where(connectedDevice => connectedDevice.DeviceHandle.Serial == e.Device.Serial).ToArray()[0];
+            var currentDevice = ConnectedDevices.Where(connectedDevice => connectedDevice.DeviceHandle.Serial == disconnectedDeviceSerial).ToArray()[0];
             ConnectedDevices.Remove(currentDevice);
+            currentDevice = null; //Dereference
+
+            //Dereference current device if IDs match
+            if (CurrentDevice.DeviceHandle.Serial == disconnectedDeviceSerial)
+            {
+                CurrentDevice = null;
+            }
         }
 
         private void Monitor_DeviceConnected(object sender, DeviceDataEventArgs e)

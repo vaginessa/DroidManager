@@ -2,15 +2,25 @@
 using DroidManager.Core.States.Pages;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using NanoMvvm;
 using NanoMvvm.Pagination;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using System;
 
 namespace DroidManager.Windows.VM.Pages
 {
     internal class OverviewPageVM : SwitchablePageViewModel
     {
         private OverviewPageState _pageState;
+
+        public ICommand ReloadViewCommand => new DelegateCommand(ReloadView);
+
+        private void ReloadView(object obj)
+        {
+            PageView.SwitcherService.ReloadCurrentPage();
+        }
 
         public OverviewPageVM()
         {
@@ -19,7 +29,7 @@ namespace DroidManager.Windows.VM.Pages
 
         public string ConnectionStatusString => _pageState.ConnectionStatusString;
 
-        public List<AndroidDevice> AvailableDevices => _pageState.ConnectedDevices;
+        public ObservableCollection<AndroidDevice> AvailableDevices => _pageState.ConnectedDevices;
 
         public AndroidDevice CurrentlySelectedDevice
         {

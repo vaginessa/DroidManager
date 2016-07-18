@@ -15,10 +15,16 @@ namespace DroidManager.Windows.Views.Pages
             (DataContext as SwitchablePageViewModel).PageView = this;
         }
 
+        #region ISwitchablePage members
+
         public void UtilizeState(object state)
         {
         }
 
         public Window HostView => Window.GetWindow(this);
+
+        public PageSwitcherService SwitcherService { get; set; }
+
+        #endregion ISwitchablePage members
     }
 }
