@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NanoMvvm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("NanoMvvm WPF")]
+[assembly: AssemblyDescription("A super-tiny and basic MVVM library for WPF")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NanoMvvm")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("IridiumIon Software")]
+[assembly: AssemblyProduct("NanoMvvm WPF")]
+[assembly: AssemblyCopyright("Copyright ©  2016 IridiumIon Software")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

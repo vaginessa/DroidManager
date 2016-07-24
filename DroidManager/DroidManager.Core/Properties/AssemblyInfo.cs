@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DroidManager.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DroidManager Core")]
+[assembly: AssemblyDescription("DroidManager Core Components")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DroidManager.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("IridiumIon Software")]
+[assembly: AssemblyProduct("DroidManager Core")]
+[assembly: AssemblyCopyright("Copyright ©  2016 IridiumIon Software")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

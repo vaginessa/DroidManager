@@ -58,7 +58,7 @@ namespace DroidManager.Windows.VM
             if (!CheckAdbAvailability(null))
             {
                 //Adb was not available. Ask now.
-                string inputAdbPath = await (View as MetroWindow).ShowInputAsync("Please enter the full path to or containing folder of the ADB executable", "DroidManager uses ADB to communicate with your device. Please enter the full path to the ADB executable.");
+                string inputAdbPath = await (View as MetroWindow).ShowInputAsync("Please locate ADB", "Please enter the full path to or containing folder of the ADB executable. Alternatively, enter the path to the Android SDK. DroidManager uses ADB to communicate with your device.");
                 //Verify ADB executable
                 if (!String.IsNullOrWhiteSpace(inputAdbPath) && SmartFindAdb(ref inputAdbPath) && AdbChecker.VerifyAdbExecutable(inputAdbPath))
                 {
@@ -84,6 +84,7 @@ namespace DroidManager.Windows.VM
         /// <returns></returns>
         private bool SmartFindAdb(ref string inputAdbPath)
         {
+            string originalPath = inputAdbPath;
             if (CheckAdbAvailability(inputAdbPath))
             {
                 return true; //It works right away! :D
@@ -101,6 +102,13 @@ namespace DroidManager.Windows.VM
 
                 //Now try appending adb.exe
                 inputAdbPath = Path.Combine(inputAdbPath, "adb.exe");
+                if (CheckAdbAvailability(inputAdbPath))
+                {
+                    return true; //Got it!
+                }
+
+                //Now try platform-tools/adb.exe
+                inputAdbPath = Path.Combine(Path.Combine(originalPath, "platform-tools"), "adb.exe");
                 if (CheckAdbAvailability(inputAdbPath))
                 {
                     return true; //Got it!
