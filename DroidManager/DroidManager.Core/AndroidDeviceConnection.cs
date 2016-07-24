@@ -5,7 +5,7 @@ namespace DroidManager.Core
 {
     public static class AndroidDeviceConnection
     {
-        static OverviewPageState overviewState;
+        private static OverviewPageState overviewState;
 
         /// <summary>
         /// Stores the current OverviewPageState instance, because it has all the device metadata
