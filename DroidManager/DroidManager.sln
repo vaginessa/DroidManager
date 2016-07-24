@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidManager.Core", "DroidM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C810FA34-79B1-419D-A11A-B8F7C5FB5DC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialMenu", "..\Dependencies\MaterialMenu\MaterialMenu.csproj", "{DC810FBA-1DC9-429F-A247-35075EA49648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSidebar", "..\Dependencies\MaterialMenu\MaterialSidebar.csproj", "{DC810FBA-1DC9-429F-A247-35075EA49648}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharpADB", "SharpADB", "{0B1D73DC-FE3D-40D1-A178-4C596FBC2444}"
 EndProject

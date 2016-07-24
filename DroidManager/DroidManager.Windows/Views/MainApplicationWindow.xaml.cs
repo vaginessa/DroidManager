@@ -51,9 +51,14 @@ namespace DroidManager.Windows.Views
             PageChanged?.Invoke(this, "Battery");
         }
 
-        private void advancedBoot_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void advancedBootTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             PageChanged?.Invoke(this, "Advanced Boot");
-        }        
+        }
+
+        private void terminalTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Terminal");
+        }
     }
 }

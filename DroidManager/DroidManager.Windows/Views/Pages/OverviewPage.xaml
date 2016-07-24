@@ -22,8 +22,14 @@
         </ComboBox>
         <TextBlock x:Name="connectionStatus" HorizontalAlignment="Left" Margin="260,82,0,0" TextWrapping="Wrap" Text="{Binding ConnectionStatusString}" VerticalAlignment="Top" Height="20" Width="183"/>
         <TextBlock x:Name="propertiesHeaderBlock" HorizontalAlignment="Left" Margin="40,147,0,0" TextWrapping="Wrap" Text="Device Information" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="deviceNameText" HorizontalAlignment="Left" Margin="40,202,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceNameInformation}" VerticalAlignment="Top"/>
         <Button x:Name="refreshDevicesButton" Content="Refresh Devices" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="182" Command="{Binding ReloadViewCommand}"/>
+
+        <!--Information Snippets-->
+        <TextBlock x:Name="deviceNameText" HorizontalAlignment="Left" Margin="40,200,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceNameInformation}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="serialIdText" HorizontalAlignment="Left" Margin="40,220,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceSerialInformation}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="productInfoText" HorizontalAlignment="Left" Margin="40,240,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.ProductInformation}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="deviceFeatureInfoText" HorizontalAlignment="Left" Margin="40,260,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceFeatureInformation}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="deviceModelInfoText" HorizontalAlignment="Left" Margin="40,280,0,0" TextWrapping="Wrap" Text="{Binding CurrentDeviceInformationService.DeviceModelInformation}" VerticalAlignment="Top"/>
 
 
     </Grid>

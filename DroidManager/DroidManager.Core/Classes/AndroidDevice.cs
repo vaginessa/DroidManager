@@ -1,4 +1,6 @@
 ﻿using SharpAdbClient;
+using SharpAdbClient.DeviceCommands;
+using System.Collections.Generic;
 
 namespace DroidManager.Core.Classes
 {
@@ -8,6 +10,7 @@ namespace DroidManager.Core.Classes
         public Device DeviceConnection;
         public string StatusText { get; private set; }
         public string DeviceName { get; private set; }
+        public Dictionary<string, string> AdditionalProperties { get; }
 
         public AndroidDevice(DeviceData deviceHandle)
         {
@@ -17,6 +20,7 @@ namespace DroidManager.Core.Classes
             DeviceConnection = new Device(DeviceMetadata);
             //Set properties
             DeviceName = DeviceMetadata.Name;
+            AdditionalProperties = deviceHandle.GetProperties();
         }
 
         public override string ToString()

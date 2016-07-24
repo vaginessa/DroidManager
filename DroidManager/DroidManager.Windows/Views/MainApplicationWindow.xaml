@@ -53,13 +53,13 @@
                             <materialMenu:MenuButton Text="Diagnostics">
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Battery" MouseDown="batteryTab_mouseDown" />
-                                    <materialMenu:MenuButton Text="Advanced Boot" MouseDown="advancedBoot_mouseDown" />
+                                    <materialMenu:MenuButton Text="Advanced Boot" MouseDown="advancedBootTab_mouseDown" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                             <materialMenu:MenuButton Text="Advanced">
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Recovery Update" />
-                                    <materialMenu:MenuButton Text="Terminal" />
+                                    <materialMenu:MenuButton Text="Terminal" MouseDown="terminalTab_mouseDown" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                         </StackPanel>

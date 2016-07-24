@@ -115,6 +115,9 @@
     <Compile Include="Views\Pages\BatteryPage.xaml.cs">
       <DependentUpon>BatteryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\FileTransferPage.xaml.cs">
+      <DependentUpon>FileTransferPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,7 @@
     <Compile Include="VM\MainApplicationWindowVM.cs" />
     <Compile Include="VM\Pages\ApplicationsPageVM.cs" />
     <Compile Include="VM\Pages\BatteryPageVM.cs" />
+    <Compile Include="VM\Pages\FileTransferPageVM.cs" />
     <Compile Include="VM\Pages\OverviewPageVM.cs" />
     <Compile Include="VM\Pages\TerminalPageVM.cs" />
   </ItemGroup>
@@ -186,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\FileTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\OverviewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,9 +204,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Dependencies\MaterialMenu\MaterialMenu.csproj">
+    <ProjectReference Include="..\..\Dependencies\MaterialMenu\MaterialSidebar.csproj">
       <Project>{dc810fba-1dc9-429f-a247-35075ea49648}</Project>
-      <Name>MaterialMenu</Name>
+      <Name>MaterialSidebar</Name>
     </ProjectReference>
     <ProjectReference Include="..\DroidManager.Core\DroidManager.Core.csproj">
       <Project>{1a3e6e0c-17c2-45be-87b3-8b4660d83ed0}</Project>
