@@ -4,6 +4,7 @@ using DroidManager.Core.States.Pages;
 using DroidManager.Windows.Views.Pages;
 using NanoMvvm;
 using NanoMvvm.Pagination;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -50,5 +51,7 @@ namespace DroidManager.Windows.VM.Pages
         }
 
         public AndroidDeviceInformationService CurrentDeviceInformationService => _pageState.CurrentDeviceInformationService;
+
+        public Dictionary<string, string> CurrentDeviceAdditionalProperties => CurrentDeviceInformationService.Device.AdditionalProperties;
     }
 }
