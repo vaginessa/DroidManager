@@ -1,15 +1,20 @@
 <project outputDir=".\Modphused" baseDir="..\bin\Release" xmlns="http://confuser.codeplex.com">
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\DroidManager.Core.dll" snKey="..\..\..\DroidManager.Core\DroidManagerCoreKey.snk">
+  <module path="DroidManager.Core.dll" snKey="..\..\..\DroidManager.Core\DroidManagerCoreKey.snk">
     <rule pattern="true" preset="maximum" inherit="false" />
   </module>
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\DroidManager.Windows.exe" snKey="..\..\..\DroidManager.Windows\DroidManagerWinSigningKey.snk">
+  <module path="DroidManager.Windows.exe" snKey="..\..\..\DroidManager.Windows\DroidManagerWinSigningKey.snk">
     <rule pattern="true" preset="maximum" inherit="false" />
   </module>
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MahApps.Metro.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MaterialDesignColors.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MaterialDesignThemes.Wpf.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\MaterialMenu.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\NanoMvvm.Wpf.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\System.Windows.Interactivity.dll" />
-  <module path="C:\Users\Nihal.Talur19\Documents\GitLab\DroidManager\DroidManager\DroidManager.Windows\bin\Release\ADKonnect.dll" snKey="..\..\..\SharpAdbClient\SharpAdbClient.snk" />
+  <module path="MahApps.Metro.dll" />
+  <module path="MaterialDesignColors.dll" />
+  <module path="MaterialDesignThemes.Wpf.dll" />
+  <module path="MaterialMenu.dll" />
+  <module path="NanoMvvm.Wpf.dll" />
+  <module path="System.Windows.Interactivity.dll" />
+  <module path="ADKonnect.dll" snKey="..\..\..\SharpAdbClient\SharpAdbClient.snk">
+    <rule pattern="true" preset="minimum" inherit="false" />
+  </module>
+  <module path="ADKonnectPlus.dll" snKey="..\..\..\\SharpAdbClient.Extensions\SharpAdbClient.snk">
+    <rule pattern="true" preset="minimum" inherit="false" />
+  </module>
 </project>
