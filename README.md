@@ -13,11 +13,16 @@ An Android device manager application
 
 ### Coming Soon
 
+- App management
+- File Transfer
+- Backup
 - Terminal
 
 ### Planned
 
 - ROM Flashing
+- Advanced boot
+- Recovery update
 
 ## Acknowledgements
 
