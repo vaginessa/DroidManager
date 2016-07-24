@@ -12,8 +12,15 @@
     </UserControl.DataContext>
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Backup" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold" />
-        
+
         <!--User Interface-->
+
+        <TextBlock x:Name="backupLocationText" HorizontalAlignment="Left" Margin="40,90,0,0" TextWrapping="Wrap" Text="Backup Location" VerticalAlignment="Top" />
+        <TextBox x:Name="backupLocationBox" Height="32" Margin="40,111,127,0" TextWrapping="Wrap" Text="..." IsReadOnly="True" VerticalAlignment="Top" />
+        <Button x:Name="browseBackupLocationButton" Content="Browse" Margin="478,111,10,0" VerticalAlignment="Top" />
         
+        <!--Footer-->
+        <Button x:Name="restoreButton" Content="Restore" HorizontalAlignment="Left" Margin="515,438,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="backupButton" Content="Backup" HorizontalAlignment="Left" Margin="398,438,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>
