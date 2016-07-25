@@ -9,6 +9,6 @@ Licenses for open-source components:
 - [MaterialDesignInXamlToolkit](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit) - [Ms-Pl](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/blob/master/License)
 
 
-All code in `DroidManager.Core` and `DroidManager.Windows` may be browsed for your information, but they are the __unlicensed__ intellectual property of 0xFireball.
+All code in `DroidManager.Core` and `DroidManager.Windows` may be browsed for your information, but they are the __unshared intellectual property__ of 0xFireball.
 Actions including but not limited to copying, modifying, and distributing the source in these products without authorization
 constitutes a violation of copyright.
