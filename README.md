@@ -2,6 +2,8 @@
 
 An Android device manager application
 
+By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
+
 ## Feature map
 
 ### Implemented
@@ -35,3 +37,4 @@ An Android device manager application
 
 Copyright 0xFireball, IridiumIon Software, 2016.
 Not licensed. **All rights reserved.**
+By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
