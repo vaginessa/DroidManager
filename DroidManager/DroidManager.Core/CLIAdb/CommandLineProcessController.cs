@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace DroidManager.Core.CLIAdb
 {
@@ -27,5 +28,10 @@ namespace DroidManager.Core.CLIAdb
         /// This event is called when the process completes. The integer argument contains the exit code of the process.
         /// </summary>
         public event EventHandler<int> ProcessCompleted;
+
+        public async Task WaitForCompletion()
+        {
+            await Task.Run(() => UnderlyingProcess.WaitForExit());
+        }
     }
 }

@@ -78,6 +78,7 @@ namespace DroidManager.Windows.VM.Pages
                 //Start backup process
                 var backupProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
                 var processController = backupProcess.ExecuteCommand("backup", backupArguments.ToArray());
+                await processController.WaitForCompletion();
                 await progressController.CloseAsync();
             }
         }
