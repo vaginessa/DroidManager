@@ -16,14 +16,14 @@ namespace DroidManager.Windows.VM.Pages
             string restoreBackupPath = await (View as MetroWindow).ShowInputAsync("Select backup", "Enter the full file path to a backup to restore to your device");
             if (string.IsNullOrWhiteSpace(restoreBackupPath))
             {
-                await (View as MetroWindow).ShowMessageAsync("Invalid parameters", "The existing backup path is invalid.");
+                await (PageView.HostView as MetroWindow).ShowMessageAsync("Invalid parameters", "The existing backup path is invalid.");
                 return;
             }
-            var dialogResult = await (View as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a restore. Are you absolutely sure you want to proceed?");
+            var dialogResult = await (PageView.HostView as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a restore. Are you absolutely sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
             if (dialogResult == MessageDialogResult.Affirmative)
             {
                 //Run restore operation
-                var progressController = await (View as MetroWindow).ShowProgressAsync("Restoring Backup", "Please wait while the backup is being restored to your device.");
+                var progressController = await (PageView.HostView as MetroWindow).ShowProgressAsync("Restoring Backup", "Please wait while the backup is being restored to your device.");
                 progressController.SetIndeterminate();
                 //Start restore process
                 string[] backupCommandArguments = { restoreBackupPath };
@@ -35,12 +35,15 @@ namespace DroidManager.Windows.VM.Pages
 
         private async void RunBackup(object obj)
         {
+            OnPropertyChanged(nameof(BackupIncludeApk));
+            OnPropertyChanged(nameof(BackupIncludeShared));
+            OnPropertyChanged(nameof(BackupIncludeSystem));
             if (string.IsNullOrWhiteSpace(BackupLocation))
             {
-                await (View as MetroWindow).ShowMessageAsync("Invalid parameters", "The backup output path is invalid.");
+                await (PageView.HostView as MetroWindow).ShowMessageAsync("Invalid parameters", "The backup output path is invalid.");
                 return;
             }
-            var dialogResult = await (View as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a backup. Are you sure you want to proceed?");
+            var dialogResult = await (PageView.HostView as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a backup. Are you sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
             if (dialogResult == MessageDialogResult.Affirmative)
             {
                 //Create arguments for backup
@@ -72,7 +75,7 @@ namespace DroidManager.Windows.VM.Pages
                 backupArguments.Add("-all");
                 backupArguments.Add(BackupLocation);
                 //Run backup operation
-                var progressController = await (View as MetroWindow).ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");
+                var progressController = await (PageView.HostView as MetroWindow).ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");
                 progressController.SetIndeterminate();
                 //Start backup process
                 await progressController.CloseAsync();
@@ -83,13 +86,14 @@ namespace DroidManager.Windows.VM.Pages
 
         private async void BrowseBackupPath(object obj)
         {
-            BackupLocation = await (View as MetroWindow).ShowInputAsync("Save backup", "Enter a full file path to save the backup to.");
+            BackupLocation = await (PageView.HostView as MetroWindow).ShowInputAsync("Save backup", "Enter a full file path to save the backup to.");
+            OnPropertyChanged(nameof(BackupLocation));
         }
 
         public string BackupLocation { get; set; }
 
         public bool BackupIncludeApk { get; set; }
         public bool BackupIncludeShared { get; set; }
-        public bool BackupIncludeSystem { get; set; } = true;
+        public bool BackupIncludeSystem { get; set; }
     }
 }
