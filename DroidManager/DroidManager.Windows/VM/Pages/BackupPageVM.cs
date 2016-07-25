@@ -14,21 +14,36 @@ namespace DroidManager.Windows.VM.Pages
 
         private async void RunRestore(object obj)
         {
-            string restoreBackupPath = await (View as MetroWindow).ShowInputAsync("Select backup", "Enter the full file path to a backup to restore to your device");
+            string restoreBackupPath = BackupLocation;
             if (string.IsNullOrWhiteSpace(restoreBackupPath))
             {
-                await (PageView.HostView as MetroWindow).ShowMessageAsync("Invalid parameters", "The existing backup path is invalid.");
-                return;
+                restoreBackupPath = await HostViewWindow.ShowInputAsync("Select backup", "Enter the full file path to a backup to restore to your device");
+                if (string.IsNullOrWhiteSpace(restoreBackupPath))
+                {
+                    await HostViewWindow.ShowMessageAsync("Invalid parameters", "The existing backup path is invalid.");
+                    return;
+                }
             }
-            var dialogResult = await (PageView.HostView as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a restore. Are you absolutely sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
+            var dialogResult = await HostViewWindow.ShowMessageAsync("Confirm action", "You are about to begin a restore. Are you absolutely sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
             if (dialogResult == MessageDialogResult.Affirmative)
             {
                 //Run restore operation
-                var progressController = await (PageView.HostView as MetroWindow).ShowProgressAsync("Restoring Backup", "Please wait while the backup is being restored to your device.");
+                var progressController = await HostViewWindow.ShowProgressAsync("Restoring Backup", "Please wait while the backup is being restored to your device.");
                 progressController.SetIndeterminate();
                 //Start restore process
-                string[] backupCommandArguments = { restoreBackupPath };
+                string[] restoreCommandArguments = { restoreBackupPath };
+                var backupProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
+                var processController = backupProcess.ExecuteCommand("restore", restoreCommandArguments);
+                int exitCode = await processController.WaitForCompletion();
                 await progressController.CloseAsync();
+                if (exitCode == 0)
+                {
+                    await HostViewWindow.ShowMessageAsync("Success", "The operation completed successfully.");
+                }
+                else
+                {
+                    await HostViewWindow.ShowMessageAsync("Error", $"The process exited with error code {exitCode}.");
+                }
             }
         }
 
@@ -38,10 +53,10 @@ namespace DroidManager.Windows.VM.Pages
         {
             if (string.IsNullOrWhiteSpace(BackupLocation))
             {
-                await (PageView.HostView as MetroWindow).ShowMessageAsync("Invalid parameters", "The backup output path is invalid.");
+                await HostViewWindow.ShowMessageAsync("Invalid parameters", "The backup output path is invalid.");
                 return;
             }
-            var dialogResult = await (PageView.HostView as MetroWindow).ShowMessageAsync("Confirm action", "You are about to begin a backup. Are you sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
+            var dialogResult = await HostViewWindow.ShowMessageAsync("Confirm action", "You are about to begin a backup. Are you sure you want to proceed?", MessageDialogStyle.AffirmativeAndNegative);
             if (dialogResult == MessageDialogResult.Affirmative)
             {
                 //Create arguments for backup
@@ -73,21 +88,31 @@ namespace DroidManager.Windows.VM.Pages
                 backupArguments.Add("-all");
                 backupArguments.Add(BackupLocation);
                 //Run backup operation
-                var progressController = await (PageView.HostView as MetroWindow).ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");
+                var progressController = await HostViewWindow.ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");
                 progressController.SetIndeterminate();
                 //Start backup process
                 var backupProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
                 var processController = backupProcess.ExecuteCommand("backup", backupArguments.ToArray());
-                await processController.WaitForCompletion();
+                int exitCode = await processController.WaitForCompletion();
                 await progressController.CloseAsync();
+                if (exitCode == 0)
+                {
+                    await HostViewWindow.ShowMessageAsync("Success", "The operation completed successfully.");
+                }
+                else
+                {
+                    await HostViewWindow.ShowMessageAsync("Error", $"The process exited with error code {exitCode}.");
+                }
             }
         }
+
+        private MetroWindow HostViewWindow => (PageView.HostView as MetroWindow);
 
         public ICommand BrowseBackupPathCommand => new DelegateCommand(BrowseBackupPath);
 
         private async void BrowseBackupPath(object obj)
         {
-            BackupLocation = await (PageView.HostView as MetroWindow).ShowInputAsync("Save backup", "Enter a full file path to save the backup to.");
+            BackupLocation = await HostViewWindow.ShowInputAsync("Save backup", "Enter a full file path to save the backup to.");
             OnPropertyChanged(nameof(BackupLocation));
         }
 

@@ -29,9 +29,10 @@ namespace DroidManager.Core.CLIAdb
         /// </summary>
         public event EventHandler<int> ProcessCompleted;
 
-        public async Task WaitForCompletion()
+        public async Task<int> WaitForCompletion()
         {
             await Task.Run(() => UnderlyingProcess.WaitForExit());
+            return UnderlyingProcess.ExitCode;
         }
     }
 }

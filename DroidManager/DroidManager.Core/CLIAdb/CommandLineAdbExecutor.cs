@@ -14,6 +14,7 @@ namespace DroidManager.Core.CLIAdb
                 startInfo.CreateNoWindow = true;
                 startInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 startInfo.FileName = AdbLocation;
+                startInfo.UseShellExecute = false;
                 return startInfo;
             }
         }
