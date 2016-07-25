@@ -23,12 +23,16 @@ namespace DroidManager.Windows.VM
             throw new NotImplementedException();
         }
 
-        private void ViewDidLoad(object obj)
+        private async void ViewDidLoad(object obj)
         {
             View.PageChanged += OnViewPageChanged;
             _pageSwitcher = new PageSwitcherService(View.PageHost);
             LoadOverviewPage();
             OnPropertyChanged(nameof(DeviceAvailable));
+            if (Properties.Settings.Default.debugMode)
+            {
+                await (View as MetroWindow).ShowMessageAsync("Warning: Debug Mode", "Debug mode is currently enabled. This will very likely result in application crashes, as many of the protection features are disabled. Please turn it off from the settings menu on the launcher window.");
+            }
         }
 
         public MainApplicationWindowVM()

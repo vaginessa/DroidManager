@@ -16,7 +16,7 @@
         <!--User Interface-->
 
         <TextBlock x:Name="backupLocationText" HorizontalAlignment="Left" Margin="40,90,0,0" TextWrapping="Wrap" Text="Backup Location" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
-        <TextBox x:Name="backupLocationBox" Height="32" Margin="40,111,127,0" TextWrapping="Wrap" Text="..." IsReadOnly="True" VerticalAlignment="Top" />
+        <TextBox x:Name="backupLocationBox" Height="32" Margin="40,111,127,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" />
         <Button x:Name="browseBackupLocationButton" Content="Browse" Margin="478,111,10,0" VerticalAlignment="Top" />
 
         <TextBlock x:Name="backupOptionsText" HorizontalAlignment="Left" Margin="40,160,0,0" TextWrapping="Wrap" Text="Backup Options" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
@@ -26,7 +26,7 @@
         <CheckBox x:Name="IncludedSystemCheck" Content="Include system applications" HorizontalAlignment="Left" Margin="40,230,0,0" VerticalAlignment="Top" IsChecked="True" />
 
         <!--Footer-->
-        <Button x:Name="restoreButton" Content="Restore" HorizontalAlignment="Left" Margin="515,438,0,0" VerticalAlignment="Top" Width="75" />
-        <Button x:Name="backupButton" Content="Backup" HorizontalAlignment="Left" Margin="398,438,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="restoreButton" Content="Restore" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="120" />
+        <Button x:Name="backupButton" Content="Backup" HorizontalAlignment="Right" Margin="0,0,160,10" Width="120" Height="32" VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>
