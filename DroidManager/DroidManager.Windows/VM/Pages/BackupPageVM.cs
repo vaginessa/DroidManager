@@ -35,9 +35,6 @@ namespace DroidManager.Windows.VM.Pages
 
         private async void RunBackup(object obj)
         {
-            OnPropertyChanged(nameof(BackupIncludeApk));
-            OnPropertyChanged(nameof(BackupIncludeShared));
-            OnPropertyChanged(nameof(BackupIncludeSystem));
             if (string.IsNullOrWhiteSpace(BackupLocation))
             {
                 await (PageView.HostView as MetroWindow).ShowMessageAsync("Invalid parameters", "The backup output path is invalid.");
@@ -92,8 +89,52 @@ namespace DroidManager.Windows.VM.Pages
 
         public string BackupLocation { get; set; }
 
-        public bool BackupIncludeApk { get; set; }
-        public bool BackupIncludeShared { get; set; }
-        public bool BackupIncludeSystem { get; set; }
+        private bool backupIncludeApk;
+
+        public bool BackupIncludeApk
+        {
+            get
+            {
+                return backupIncludeApk;
+            }
+
+            set
+            {
+                backupIncludeApk = value;
+                OnPropertyChanged(nameof(BackupIncludeApk));
+            }
+        }
+
+        private bool backupIncludeShared;
+
+        public bool BackupIncludeShared
+        {
+            get
+            {
+                return backupIncludeShared;
+            }
+
+            set
+            {
+                backupIncludeShared = value;
+                OnPropertyChanged(nameof(BackupIncludeShared));
+            }
+        }
+
+        private bool backupIncludeSystem;
+
+        public bool BackupIncludeSystem
+        {
+            get
+            {
+                return backupIncludeSystem;
+            }
+
+            set
+            {
+                backupIncludeSystem = value;
+                OnPropertyChanged(nameof(BackupIncludeSystem));
+            }
+        }
     }
 }
