@@ -3,7 +3,7 @@ using NanoMvvm;
 
 namespace DroidManager.Windows.VM
 {
-    class AboutWindowVM : ViewModelBase
+    internal class AboutWindowVM : ViewModelBase
     {
         private AboutState _aboutStateModel = new AboutState();
 

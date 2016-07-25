@@ -12,8 +12,8 @@
                       Title="About" Height="255.86" Width="356.25" Icon="../logo.ico">
     <Grid>
         <TextBlock x:Name="aboutHeaderBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Header}" FontWeight="Bold" FontSize="16" />
-        <TextBlock x:Name="aboutContentBlock" Margin="10,36,10,42.5" TextWrapping="Wrap" Text="{Binding AboutContent}"/>
-        <TextBlock x:Name="aboutCopyrightBlock" Margin="10,0,10,9.5" TextWrapping="Wrap" Text="{Binding Copyright}" Height="28" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="aboutContentBlock" Margin="10,36,10,42.5" TextWrapping="Wrap" Text="{Binding AboutContent}" />
+        <TextBlock x:Name="aboutCopyrightBlock" Margin="10,0,10,9.5" TextWrapping="Wrap" Text="{Binding Copyright}" Height="28" VerticalAlignment="Bottom" />
     </Grid>
     <Window.DataContext>
         <vm:AboutWindowVM />
