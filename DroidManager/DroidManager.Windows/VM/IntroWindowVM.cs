@@ -24,6 +24,8 @@ namespace DroidManager.Windows.VM
 
         public ICommand LaunchMainApplicationCommand => new DelegateCommand(LaunchMainApplication);
 
+        public ICommand LaunchSettingsWindowCommand => new DelegateCommand(LaunchSettingsWindow);
+
         public ICommand ViewLoadedCommand => new DelegateCommand(ViewDidLoad);
 
         private void LaunchMainApplication(object obj)
@@ -31,6 +33,11 @@ namespace DroidManager.Windows.VM
             View.WindowHandle.Hide();
             DroidManagerContext.WindowService.ShowWindowDialog<MainApplicationWindow>(View.WindowHandle);
             View.WindowHandle.Show();
+        }
+
+        private void LaunchSettingsWindow(object obj)
+        {
+            DroidManagerContext.WindowService.ShowWindowDialog<SettingsWindow>(View.WindowHandle);
         }
 
         private void ViewAbout(object obj)

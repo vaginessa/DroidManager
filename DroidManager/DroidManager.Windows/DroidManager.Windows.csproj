@@ -136,6 +136,7 @@
     <Compile Include="VM\Pages\FileTransferPageVM.cs" />
     <Compile Include="VM\Pages\OverviewPageVM.cs" />
     <Compile Include="VM\Pages\TerminalPageVM.cs" />
+    <Compile Include="VM\SettingsWindowVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

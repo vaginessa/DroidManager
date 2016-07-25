@@ -23,13 +23,18 @@
         <vm:IntroWindowVM />
     </Window.DataContext>
     <Grid>
-        <TextBlock x:Name="titleBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DroidManager" VerticalAlignment="Top"  FontWeight="Bold" FontSize="36" Width="237" Margin="180,40,179.5,0"/>
-        <Button x:Name="launchAppButton" Content="Launch Application" Width="200" Margin="198,0,198.5,40" Height="48" VerticalAlignment="Bottom" Command="{Binding LaunchMainApplicationCommand}"/>
+        <TextBlock x:Name="titleBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DroidManager" VerticalAlignment="Top"  FontWeight="Bold" FontSize="36" Width="237" Margin="180,40,179.5,0" />
+        <Button x:Name="launchAppButton" Content="Launch Application" Width="200" Margin="198,0,198.5,40" Height="48" VerticalAlignment="Bottom" Command="{Binding LaunchMainApplicationCommand}" />
+        <TextBlock x:Name="launchSettingsBlock" HorizontalAlignment="Right" Margin="0,0,10,10" TextWrapping="Wrap" Text="Settings" VerticalAlignment="Bottom" Foreground="#DD1395D2" FontWeight="Bold" FontSize="14">
+            <TextBlock.InputBindings>
+                <MouseBinding Command="{Binding LaunchSettingsWindowCommand}" MouseAction="LeftClick" />
+            </TextBlock.InputBindings>
+        </TextBlock>
     </Grid>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Name="btnVersion" Content="{Binding ApplicationVersion}" Command="{Binding ViewAboutCommand}"/>
-            <Button Name="btnIIon" Content="IridiumIon Software" FontSize="14" Command="{Binding VisitIridiumIonSiteCommand}"/>
+            <Button Name="btnVersion" Content="{Binding ApplicationVersion}" Command="{Binding ViewAboutCommand}" />
+            <Button Name="btnIIon" Content="IridiumIon Software" FontSize="14" Command="{Binding VisitIridiumIonSiteCommand}" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 </Controls:MetroWindow>
