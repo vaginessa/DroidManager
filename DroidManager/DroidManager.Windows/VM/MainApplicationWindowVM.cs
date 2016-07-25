@@ -18,6 +18,8 @@ namespace DroidManager.Windows.VM
 
         public bool DeviceAvailable => AndroidDeviceConnection.OverviewState?.CurrentDevice != null;
 
+        public bool HackerMode => Properties.Settings.Default.hackerMode;
+
         private void DeviceSelected(object obj)
         {
             throw new NotImplementedException();

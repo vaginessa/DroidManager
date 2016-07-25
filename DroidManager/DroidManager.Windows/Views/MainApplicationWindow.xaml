@@ -60,6 +60,7 @@
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Recovery Update" />
                                     <materialMenu:MenuButton Text="Terminal" MouseDown="terminalTab_mouseDown" />
+                                    <materialMenu:MenuButton Text="Image Flasher" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
                         </StackPanel>
