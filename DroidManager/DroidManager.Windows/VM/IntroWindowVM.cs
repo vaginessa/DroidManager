@@ -89,7 +89,7 @@ namespace DroidManager.Windows.VM
         /// </summary>
         /// <param name="inputAdbPath"></param>
         /// <returns></returns>
-        private bool SmartFindAdb(ref string inputAdbPath)
+        public static bool SmartFindAdb(ref string inputAdbPath)
         {
             string originalPath = inputAdbPath;
             if (CheckAdbAvailability(inputAdbPath))
@@ -127,7 +127,7 @@ namespace DroidManager.Windows.VM
             return false; //Adb could not be found :(
         }
 
-        private bool CheckAdbAvailability(string testPath)
+        public static bool CheckAdbAvailability(string testPath)
         {
             string adbPath = testPath ?? Properties.Settings.Default.adbExecutablePath;
             if (String.IsNullOrWhiteSpace(adbPath)) return false; //Setting is unset

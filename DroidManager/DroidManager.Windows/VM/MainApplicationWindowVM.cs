@@ -40,7 +40,7 @@ namespace DroidManager.Windows.VM
 
         private async void OnViewPageChanged(object sender, string pageIdentifier)
         {
-            if (AndroidDeviceConnection.OverviewState.CurrentDevice != null)
+            if (AndroidDeviceConnection.OverviewState.CurrentDevice != null || Properties.Settings.Default.debugMode)
             {
                 switch (pageIdentifier)
                 {

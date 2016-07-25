@@ -5,14 +5,41 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:vm="clr-namespace:DroidManager.Windows.VM"
+                      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                       xmlns:local="clr-namespace:DroidManager.Windows.Views"
                       mc:Ignorable="d"
                       WindowStartupLocation="CenterOwner"
                       ResizeMode="CanMinimize"
-                      Title="SettingsWindow" Height="400" Width="640">
+                      Title="DroidManager Settings" Height="400" Width="640">
     <Window.DataContext>
         <vm:SettingsWindowVM />
     </Window.DataContext>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding ViewClosingCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
+        <TextBlock x:Name="titleBlock" HorizontalAlignment="Left" Margin="30,30,0,0" TextWrapping="Wrap" Text="DroidManager Settings" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <GroupBox x:Name="adbSettings" Header="ADB Settings" Margin="30,60,30,30">
+                    <Grid>
+                        <TextBlock x:Name="adbPathText" Margin="10,10,10,0" TextWrapping="NoWrap" Text="{Binding AdbPathText}" VerticalAlignment="Top" />
+                        <Button x:Name="adbPathBrowseButton" Content="Change" HorizontalAlignment="Left" Margin="133,31,0,0" VerticalAlignment="Top" Width="100" Command="{Binding ChangeAdbPathCommand}" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <CheckBox x:Name="debugModeCheckbox" Content="Debug Mode (this WILL cause crashes)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=DebugModeOption, Mode=TwoWay}"/>
+                <CheckBox x:Name="hackerModeCheckbox" Content="Hacker Mode (coming soon)" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+        </Grid>
     </Grid>
 </Controls:MetroWindow>
