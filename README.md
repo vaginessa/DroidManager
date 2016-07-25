@@ -13,11 +13,14 @@ By using this software, you agree to abide by the conditions stated in [LICENSE.
 - `getprop` values
 - USB mode detection
 
+### Partially Implemented (In progress)
+
+- Backup
+- App management
+
 ### Coming Soon
 
-- App management
 - File Transfer
-- Backup
 - Terminal
 
 ### Planned
