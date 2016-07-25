@@ -109,13 +109,13 @@ namespace MaterialMenu
 
         public ScrollViewer Menu
         {
-            get { return (ScrollViewer) GetValue(MenuProperty); }
+            get { return (ScrollViewer)GetValue(MenuProperty); }
             set { SetValue(MenuProperty, value); }
         }
 
         public double MenuWidth
         {
-            get { return (double) GetValue(MenuWidthProperty); }
+            get { return (double)GetValue(MenuWidthProperty); }
             set
             {
                 SetValue(MenuWidthProperty, value);
@@ -141,7 +141,7 @@ namespace MaterialMenu
 
         public SideMenuTheme Theme
         {
-            get { return (SideMenuTheme) GetValue(ThemeProperty); }
+            get { return (SideMenuTheme)GetValue(ThemeProperty); }
             set
             {
                 if (value == SideMenuTheme.None) return;
@@ -153,29 +153,34 @@ namespace MaterialMenu
                 {
                     case SideMenuTheme.Default:
                         background = new SolidColorBrush { Color = Color.FromArgb(205, 20, 20, 20) };
-                        buttonBackground = new SolidColorBrush {Color = Color.FromArgb(50,30,30,30)};
-                        buttonHoverBackground = new SolidColorBrush {Color = Color.FromArgb(50, 70,70,70)};
+                        buttonBackground = new SolidColorBrush { Color = Color.FromArgb(50, 30, 30, 30) };
+                        buttonHoverBackground = new SolidColorBrush { Color = Color.FromArgb(50, 70, 70, 70) };
                         break;
+
                     case SideMenuTheme.Primary:
                         background = new SolidColorBrush { Color = Color.FromArgb(205, 24, 57, 85) };
                         buttonBackground = new SolidColorBrush { Color = Color.FromArgb(50, 35, 85, 126) };
                         buttonHoverBackground = new SolidColorBrush { Color = Color.FromArgb(50, 45, 110, 163) };
                         break;
+
                     case SideMenuTheme.Success:
                         background = new SolidColorBrush { Color = Color.FromArgb(205, 55, 109, 55) };
                         buttonBackground = new SolidColorBrush { Color = Color.FromArgb(50, 65, 129, 65) };
                         buttonHoverBackground = new SolidColorBrush { Color = Color.FromArgb(50, 87, 172, 87) };
                         break;
+
                     case SideMenuTheme.Warning:
                         background = new SolidColorBrush { Color = Color.FromArgb(205, 150, 108, 49) };
                         buttonBackground = new SolidColorBrush { Color = Color.FromArgb(50, 179, 129, 58) };
                         buttonHoverBackground = new SolidColorBrush { Color = Color.FromArgb(50, 216, 155, 70) };
                         break;
+
                     case SideMenuTheme.Danger:
                         background = new SolidColorBrush { Color = Color.FromArgb(205, 135, 52, 49) };
-                        buttonBackground = new SolidColorBrush {Color = Color.FromArgb(50, 179, 69, 65)};
+                        buttonBackground = new SolidColorBrush { Color = Color.FromArgb(50, 179, 69, 65) };
                         buttonHoverBackground = new SolidColorBrush { Color = Color.FromArgb(50, 238, 92, 86) };
                         break;
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(value), value, null);
                 }
@@ -201,7 +206,9 @@ namespace MaterialMenu
         {
             var animation = new DoubleAnimation
             {
-                From = -MenuWidth*.85, To = 0, Duration = TimeSpan.FromMilliseconds(100)
+                From = -MenuWidth * .85,
+                To = 0,
+                Duration = TimeSpan.FromMilliseconds(100)
             };
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
             _isShown = true;

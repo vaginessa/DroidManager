@@ -31,6 +31,7 @@ namespace MaterialMenu
         Warning,
         Danger
     }
+
     public enum UiTheme
     {
         Light,
@@ -45,7 +46,7 @@ namespace MaterialMenu
 
     public enum MenuState
     {
-        Visible, 
+        Visible,
         Hidden
     }
 }
