@@ -50,6 +50,7 @@
     <Compile Include="Classes\AndroidDevice.cs" />
     <Compile Include="Classes\AndroidDeviceInformationService.cs" />
     <Compile Include="CLIAdb\CommandLineAdbExecutor.cs" />
+    <Compile Include="CLIAdb\CommandLineProcessController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\AboutState.cs" />
     <Compile Include="States\IntroState.cs" />

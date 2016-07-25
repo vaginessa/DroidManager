@@ -2,7 +2,7 @@
 
 namespace DroidManager.Core.CLIAdb
 {
-    internal class CommandLineAdbExecutor
+    public class CommandLineAdbExecutor
     {
         public string AdbLocation { get; }
 
@@ -23,11 +23,12 @@ namespace DroidManager.Core.CLIAdb
             AdbLocation = adbExecutablePath;
         }
 
-        public void ExecuteCommand(string commandName, string[] arguments)
+        public CommandLineProcessController ExecuteCommand(string commandName, string[] arguments)
         {
             var startInfo = AdbStartInformation;
             startInfo.Arguments = $"{commandName} {string.Join(" ", arguments)}";
-            Process.Start(startInfo);
+            var proc = Process.Start(startInfo);
+            return new CommandLineProcessController(proc);
         }
     }
 }

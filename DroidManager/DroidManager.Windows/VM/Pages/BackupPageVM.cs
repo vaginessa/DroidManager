@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using DroidManager.Core.CLIAdb;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using NanoMvvm.Pagination;
@@ -75,6 +76,8 @@ namespace DroidManager.Windows.VM.Pages
                 var progressController = await (PageView.HostView as MetroWindow).ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");
                 progressController.SetIndeterminate();
                 //Start backup process
+                var backupProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
+                var processController = backupProcess.ExecuteCommand("backup", backupArguments.ToArray());
                 await progressController.CloseAsync();
             }
         }
