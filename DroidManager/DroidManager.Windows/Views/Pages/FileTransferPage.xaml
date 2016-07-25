@@ -11,5 +11,10 @@
         <pagevm:FileTransferPageVM />
     </UserControl.DataContext>
     <Grid>
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="File Transfer" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold" />
+        <TextBlock x:Name="subheaderInfoBlock" Margin="40,75,40,0" TextWrapping="Wrap" Text="The file transfer tool allows you to transfer any file from your device, including those not accessible from the explorer over USB." VerticalAlignment="Top" Height="41" FontSize="14"  />
+
+        <!--Page content-->
+
     </Grid>
 </UserControl>

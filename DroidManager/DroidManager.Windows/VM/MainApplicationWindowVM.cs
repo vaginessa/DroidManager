@@ -48,35 +48,42 @@ namespace DroidManager.Windows.VM
         {
             if (AndroidDeviceConnection.OverviewState.CurrentDevice != null || Properties.Settings.Default.debugMode)
             {
-                switch (pageIdentifier)
+                try
                 {
-                    case "Overview":
-                        LoadOverviewPage();
-                        break;
+                    switch (pageIdentifier)
+                    {
+                        case "Overview":
+                            LoadOverviewPage();
+                            break;
 
-                    case "Applications":
-                        LoadApplicationsPage();
-                        break;
+                        case "Applications":
+                            LoadApplicationsPage();
+                            break;
 
-                    case "Backup":
-                        LoadBackupPage();
-                        break;
+                        case "Backup":
+                            LoadBackupPage();
+                            break;
 
-                    case "File Transfer":
-                        LoadFileTransferPage();
-                        break;
+                        case "File Transfer":
+                            LoadFileTransferPage();
+                            break;
 
-                    case "Battery":
-                        LoadBatteryPage();
-                        break;
+                        case "Battery":
+                            LoadBatteryPage();
+                            break;
 
-                    case "Advanced Boot":
-                        LoadAdvancedBootPage();
-                        break;
+                        case "Advanced Boot":
+                            LoadAdvancedBootPage();
+                            break;
 
-                    case "Terminal":
-                        LoadTerminalPage();
-                        break;
+                        case "Terminal":
+                            LoadTerminalPage();
+                            break;
+                    }
+                }
+                catch (NotImplementedException)
+                {
+                    await (View as MetroWindow).ShowMessageAsync("Feature not implemented", "This feature has not yet been implemented, but it's probably coming soon!");
                 }
             }
             else
@@ -102,7 +109,7 @@ namespace DroidManager.Windows.VM
 
         private void LoadFileTransferPage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<FileTransferPage>();
         }
 
         private void LoadBackupPage()
