@@ -13,7 +13,7 @@ namespace DroidManager.Windows.VM.Pages
         public ICommand ReloadViewCommand => new DelegateCommand(ReloadView);
 
         public List<string> InstalledPackageIdentifiers => _pageState.InstalledPackageIds;
-        string _selectedPackageId;
+        private string _selectedPackageId;
 
         public string SelectedPackageId
         {

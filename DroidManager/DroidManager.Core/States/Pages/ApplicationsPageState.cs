@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using SharpAdbClient.DeviceCommands;
+﻿using SharpAdbClient.DeviceCommands;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DroidManager.Core.States.Pages
