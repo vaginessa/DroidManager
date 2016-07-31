@@ -11,5 +11,12 @@
         <pagevm:ApplicationsPageVM />
     </UserControl.DataContext>
     <Grid>
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Application Manager" VerticalAlignment="Top" Height="37" Width="236" FontSize="22" FontWeight="Bold" />
+        <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="102" Command="{Binding ReloadViewCommand}" />
+
+        <!--Package Table-->
+        <ListView
+            ItemsSource="{Binding InstalledPackageIdentifiers}"
+            SelectedItem="{Binding SelectedPackageId}" />
     </Grid>
 </UserControl>
