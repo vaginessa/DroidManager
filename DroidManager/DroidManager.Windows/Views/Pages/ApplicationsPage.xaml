@@ -12,11 +12,21 @@
     </UserControl.DataContext>
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Application Manager" VerticalAlignment="Top" Height="37" Width="236" FontSize="22" FontWeight="Bold" />
-        <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Width="102" Command="{Binding ReloadViewCommand}" />
+        <Button x:Name="refreshButton" Content="Refresh" Margin="458,55,40,0" VerticalAlignment="Top" Command="{Binding ReloadViewCommand}" />
+
+
 
         <!--Package Table-->
         <ListView
             ItemsSource="{Binding InstalledPackageIdentifiers}"
-            SelectedItem="{Binding SelectedPackageId}" />
+            SelectedItem="{Binding SelectedPackageId}" Margin="40,148,10,10">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Menu Item">Backup Data</MenuItem>
+                    <MenuItem Header="Menu Item">Restore Data</MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <TextBlock x:Name="infoBlock" HorizontalAlignment="Left" Margin="40,117,0,0" TextWrapping="Wrap" Text="Right click an application for more actions" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
