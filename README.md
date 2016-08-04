@@ -4,6 +4,9 @@ An Android device manager application
 
 By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
 
+### Screenshot
+![screenshot](https://iridiumion.xyz/projects/droidmanager/img/srec1.gif)
+
 ## Feature map
 
 ### Implemented
