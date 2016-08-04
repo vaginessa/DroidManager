@@ -4,7 +4,8 @@ An Android device manager application
 
 By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
 
-### Screenshot
+## Screenshot
+
 ![screenshot](https://iridiumion.xyz/projects/droidmanager/img/srec1.gif)
 
 ## Feature map
@@ -15,11 +16,11 @@ By using this software, you agree to abide by the conditions stated in [LICENSE.
 - Battery information
 - `getprop` values
 - USB mode detection
+- Backup
 
 ### Partially Implemented (In progress)
 
-- Backup
-- App management
+- App management (almost done!)
 
 ### Coming Soon
 
@@ -42,5 +43,5 @@ By using this software, you agree to abide by the conditions stated in [LICENSE.
 ## License Information
 
 Copyright 0xFireball, IridiumIon Software, 2016.
-Not licensed. **All rights reserved.**
+All original code is Not licensed. **All rights reserved.** Open source licenses can be found in the license file.
 By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
