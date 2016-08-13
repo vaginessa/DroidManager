@@ -52,6 +52,6 @@ namespace DroidManager.Windows.VM.Pages
 
         public AndroidDeviceInformationService CurrentDeviceInformationService => _pageState.CurrentDeviceInformationService;
 
-        public Dictionary<string, string> CurrentDeviceAdditionalProperties => CurrentDeviceInformationService.Device.AdditionalProperties;
+        public Dictionary<string, string> CurrentDeviceAdditionalProperties => CurrentDeviceInformationService?.Device.AdditionalProperties;
     }
 }
