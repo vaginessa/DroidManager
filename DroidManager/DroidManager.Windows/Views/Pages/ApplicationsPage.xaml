@@ -26,8 +26,15 @@
             SelectedItem="{Binding SelectedPackageId}" Margin="40,148,10,10">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Menu Item">Backup Data</MenuItem>
-                    <MenuItem Header="Menu Item">Restore Data</MenuItem>
+                    <MenuItem Header="Backup">
+                        <MenuItem Header="Backup Data" />
+                        <MenuItem Header="Backup APK" />
+                        <MenuItem Header="Backup APK and assets" />
+                        <MenuItem Header="Backup Data, APK, and assets" />
+                    </MenuItem>
+                    <MenuItem Header="Restore">
+                        <MenuItem Header="Restore Data" />
+                    </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
