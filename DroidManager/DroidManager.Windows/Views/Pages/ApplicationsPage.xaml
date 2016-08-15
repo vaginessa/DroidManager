@@ -35,6 +35,7 @@
                     <MenuItem Header="Restore">
                         <MenuItem Header="Restore Data" />
                     </MenuItem>
+                    <MenuItem Header="Uninstall" Command="{Binding UninstallSelectedApplicationCommand}" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
