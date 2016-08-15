@@ -86,6 +86,7 @@ namespace DroidManager.Windows.VM.Pages
                     backupArguments.Add("-nosystem");
                 }
                 backupArguments.Add("-all");
+                backupArguments.Add("-f");
                 backupArguments.Add(BackupLocation);
                 //Run backup operation
                 var progressController = await HostViewWindow.ShowProgressAsync("Creating Backup", "Please wait while your device is being backed up.");

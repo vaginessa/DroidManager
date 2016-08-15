@@ -1,4 +1,5 @@
-﻿using DroidManager.Core.States.Pages;
+﻿using DroidManager.Core.CLIAdb;
+using DroidManager.Core.States.Pages;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
@@ -17,6 +18,79 @@ namespace DroidManager.Windows.VM.Pages
         public ICommand ViewLoadedCommand => new DelegateCommand(ViewDidLoad);
         public ICommand UninstallSelectedApplicationCommand => new DelegateCommand(UninstallSelectedApplication);
         public ICommand InstallApplicationFromFileCommand => new DelegateCommand(InstallApplicationFromFile);
+        public ICommand BackupDataCommand => new DelegateCommand(BackupData);
+        public ICommand BackupDataApkCommand => new DelegateCommand(BackupDataApk);
+        public ICommand BackupDataApkAndObbCommand => new DelegateCommand(BackupDataApkAndObb);
+
+        private void BackupDataApkAndObb(object obj)
+        {
+            var backupLocation = FileDialogUtil.BrowseForSaveFile("Android Backups (*.ab)|*.ab|All Files (*.*)|*.*", "Select an output file for the backup.");
+            if (backupLocation != null)
+            {
+                RunApplicationBackup(true, true, backupLocation);
+            }
+        }
+
+        private void BackupDataApk(object obj)
+        {
+            var backupLocation = FileDialogUtil.BrowseForSaveFile("Android Backups (*.ab)|*.ab|All Files (*.*)|*.*", "Select an output file for the backup.");
+            if (backupLocation != null)
+            {
+                RunApplicationBackup(true, false, backupLocation);
+            }
+        }
+
+        private void BackupData(object obj)
+        {
+            var backupLocation = FileDialogUtil.BrowseForSaveFile("Android Backups (*.ab)|*.ab|All Files (*.*)|*.*", "Select an output file for the backup.");
+            if (backupLocation != null)
+            {
+                RunApplicationBackup(false, false, backupLocation);
+            }
+        }
+
+        private async void RunApplicationBackup(bool apk, bool obb, string outputFile)
+        {
+            //Create arguments for backup
+            List<string> backupArguments = new List<string>();
+            if (apk)
+            {
+                backupArguments.Add("-apk");
+            }
+            else
+            {
+                backupArguments.Add("-noapk");
+            }
+            if (obb)
+            {
+                backupArguments.Add("-obb");
+            }
+            else
+            {
+                backupArguments.Add("-noobb");
+            }
+            backupArguments.Add("-f");
+            backupArguments.Add(outputFile);
+            backupArguments.Add(SelectedPackageId);
+
+            var progressController = await HostWindow.ShowProgressAsync("Creating Backup", $"Please wait while {SelectedPackageId} is backed up.");
+            progressController.SetIndeterminate();
+
+            //Start backup process
+            var backupProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
+
+            var processController = backupProcess.ExecuteCommand("backup", backupArguments.ToArray());
+            int exitCode = await processController.WaitForCompletion();
+            await progressController.CloseAsync();
+            if (exitCode == 0)
+            {
+                await HostWindow.ShowMessageAsync("Success", "The operation completed successfully.");
+            }
+            else
+            {
+                await HostWindow.ShowMessageAsync("Error", $"The process exited with error code {exitCode}.");
+            }
+        }
 
         private async void InstallApplicationFromFile(object obj)
         {

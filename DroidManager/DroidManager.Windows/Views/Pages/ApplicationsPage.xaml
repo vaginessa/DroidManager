@@ -27,10 +27,9 @@
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Backup">
-                        <MenuItem Header="Backup Data" />
-                        <MenuItem Header="Backup APK" />
-                        <MenuItem Header="Backup APK and assets" />
-                        <MenuItem Header="Backup Data, APK, and assets" />
+                        <MenuItem Header="Backup Data" Command="{Binding BackupDataCommand}" />
+                        <MenuItem Header="Backup APK and Data" Command="{Binding BackupDataApkCommand}" />
+                        <MenuItem Header="Backup APK, Data, and assets" Command="{Binding BackupDataApkAndObbCommand}" />
                     </MenuItem>
                     <MenuItem Header="Restore">
                         <MenuItem Header="Restore Data" />
