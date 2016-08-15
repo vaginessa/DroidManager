@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using NanoMvvm.Pagination;
+using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 
@@ -15,6 +16,28 @@ namespace DroidManager.Windows.VM.Pages
         public ICommand RefreshApplicationsCommand => new DelegateCommand(RefreshApplications);
         public ICommand ViewLoadedCommand => new DelegateCommand(ViewDidLoad);
         public ICommand UninstallSelectedApplicationCommand => new DelegateCommand(UninstallSelectedApplication);
+        public ICommand InstallApplicationFromFileCommand => new DelegateCommand(InstallApplicationFromFile);
+
+        private async void InstallApplicationFromFile(object obj)
+        {
+            var apkFile = FileDialogUtil.BrowseForOpenFile("Android Applications (*.apk)|*.apk|All Files (*.*)|*.*", "Select an APK");
+            if (apkFile != null)
+            {
+                var progressController = await HostWindow.ShowProgressAsync("Installing", "Installing application");
+                progressController.SetIndeterminate();
+                Tuple<bool, string> installResult = await _pageState.InstallApplicationFromFileAsync(apkFile);
+                var success = installResult.Item1;
+                if (!success)
+                {
+                    await progressController.CloseAsync();
+                    await HostWindow.ShowMessageAsync("Error", $"Application install failed with error: {installResult.Item2}");
+                    return;
+                }
+
+                await progressController.CloseAsync();
+                RefreshApplications(null);
+            }
+        }
 
         private MetroWindow HostWindow => (PageView.HostView as MetroWindow);
 

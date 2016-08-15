@@ -23,7 +23,7 @@
         <!--Package Table-->
         <ListView
             ItemsSource="{Binding InstalledPackageIdentifiers}"
-            SelectedItem="{Binding SelectedPackageId}" Margin="40,148,10,10">
+            SelectedItem="{Binding SelectedPackageId}" Margin="40,148,10,47">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Backup">
@@ -41,5 +41,6 @@
         </ListView>
         <TextBlock x:Name="infoBlock" HorizontalAlignment="Left" Margin="40,117,0,0" TextWrapping="Wrap" Text="Right click an application for more actions" VerticalAlignment="Top" />
         <CheckBox x:Name="includeSystemAppsCheckbox" Content="Include System Apps" Margin="0,118,40,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Height="16" IsChecked="{Binding IncludeSystemApps, Mode=TwoWay}"/>
+        <Button x:Name="installAppButton" Content="Install App" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Command="{Binding InstallApplicationFromFileCommand}"/>
     </Grid>
 </UserControl>

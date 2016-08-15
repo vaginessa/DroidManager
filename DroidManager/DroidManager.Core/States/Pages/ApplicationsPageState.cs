@@ -30,6 +30,27 @@ namespace DroidManager.Core.States.Pages
             InstalledPackageIds = InstalledPackages.Keys.ToList();
         }
 
+        public async Task<Tuple<bool, string>> InstallApplicationFromFileAsync(string apkFile)
+        {
+            var ret = false;
+            string installError = null;
+            await Task.Run(() =>
+            {
+                try
+                {
+                    PackageManager.InstallPackage(apkFile, false);
+                    ret = true;
+                }
+                catch (PackageInstallationException pinstex)
+                {
+                    installError = pinstex.Message;
+                    //It will be handled in the caller
+                    ret = false;
+                }
+            });
+            return new Tuple<bool, string>(ret, installError);
+        }
+
         public async Task<bool> UninstallApplicationByPackageIdAsync(string selectedPackageId)
         {
             var ret = false;
