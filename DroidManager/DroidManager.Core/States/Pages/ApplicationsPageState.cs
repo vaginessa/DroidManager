@@ -1,26 +1,25 @@
 ﻿using SharpAdbClient.DeviceCommands;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DroidManager.Core.States.Pages
 {
     public class ApplicationsPageState
     {
-        public ApplicationsPageState()
-        {
-            RefreshApplicationsInformation();
-        }
-
         public List<string> InstalledPackageIds { get; private set; }
         public Dictionary<string, string> InstalledPackages { get; private set; }
 
-        private void RefreshApplicationsInformation()
+        public async Task RefreshApplicationsInformationAsync()
         {
-            var currentDevice = AndroidDeviceConnection.OverviewState.CurrentDevice;
-            PackageManager pm = new PackageManager(currentDevice.DeviceMetadata);
-            pm.RefreshPackages();
-            InstalledPackages = pm.Packages;
-            InstalledPackageIds = InstalledPackages.Keys.ToList();
+            await Task.Run(() =>
+            {
+                var currentDevice = AndroidDeviceConnection.OverviewState.CurrentDevice;
+                PackageManager pm = new PackageManager(currentDevice.DeviceMetadata);
+                pm.RefreshPackages();
+                InstalledPackages = pm.Packages;
+                InstalledPackageIds = InstalledPackages.Keys.ToList();
+            });
         }
     }
 }
