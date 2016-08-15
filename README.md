@@ -42,6 +42,7 @@ By using this software, you agree to abide by the conditions stated in [LICENSE.
 
 ## License Information
 
-Copyright 0xFireball, IridiumIon Software, 2016.
-All original code is Not licensed. **All rights reserved.** Open source licenses can be found in the license file.
+Copyright 0xFireball, IridiumIon Software, 2016. **All rights reserved.**
+
+This program is licensed under the GNU General Public License v3.0
 By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
