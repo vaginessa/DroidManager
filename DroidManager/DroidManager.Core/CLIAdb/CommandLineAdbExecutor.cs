@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 
 namespace DroidManager.Core.CLIAdb
 {
@@ -27,7 +28,8 @@ namespace DroidManager.Core.CLIAdb
         public CommandLineProcessController ExecuteCommand(string commandName, string[] arguments)
         {
             var startInfo = AdbStartInformation;
-            startInfo.Arguments = $"{commandName} {string.Join(" ", arguments)}";
+            var quoteEncapsulatedArguments = arguments.Select(argument => "\"" + argument + "\"").ToArray();
+            startInfo.Arguments = $"{commandName} {string.Join(" ", quoteEncapsulatedArguments)}";
             var proc = Process.Start(startInfo);
             return new CommandLineProcessController(proc);
         }
