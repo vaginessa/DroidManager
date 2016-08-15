@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DroidManager.Windows.VM
@@ -12,6 +13,20 @@ namespace DroidManager.Windows.VM
         public string AdbPathText => $"ADB Path: {Properties.Settings.Default.adbExecutablePath}";
 
         public ICommand ChangeAdbPathCommand => new DelegateCommand(ChangeAdbPath);
+
+        public ICommand ResetAllSettingsCommand => new DelegateCommand(ResetAllSettings);
+
+        private async void ResetAllSettings(object obj)
+        {
+            var result = await (View as MetroWindow).ShowMessageAsync("Confirm action", "Are you absolutely sure you want to reset all settings to default? This action cannot be undone.", MessageDialogStyle.AffirmativeAndNegative);
+            if (result == MessageDialogResult.Affirmative)
+            {
+                Properties.Settings.Default.Reset();
+                Properties.Settings.Default.Save();
+                await (View as MetroWindow).ShowMessageAsync("Success", "All settings have been reset to their defaults.");
+                (View as MetroWindow).Close();
+            }
+        }
 
         public ICommand ViewClosingCommand => new DelegateCommand(ViewIsClosing);
 
@@ -29,7 +44,9 @@ namespace DroidManager.Windows.VM
         private async void ChangeAdbPath(object obj)
         {
             string inputAdbPath = await (View as MetroWindow).ShowInputAsync("Please locate ADB", "Please enter the full path to or containing folder of the ADB executable. Alternatively, enter the path to the Android SDK. DroidManager uses ADB to communicate with your device.");
-            if (!String.IsNullOrWhiteSpace(inputAdbPath) && IntroWindowVM.SmartFindAdb(ref inputAdbPath) && AdbChecker.VerifyAdbExecutable(inputAdbPath))
+            //Verify ADB executable
+            Tuple<bool, string> findResult;
+            if (!String.IsNullOrWhiteSpace(inputAdbPath) && (findResult = await Task.Run(() => IntroWindowVM.SmartFindAdb(inputAdbPath))).Item1 && await Task.Run(() => AdbChecker.VerifyAdbExecutable(findResult.Item2)))
             {
                 //Adb has been verified, save new settings
                 Properties.Settings.Default.adbExecutablePath = inputAdbPath;
