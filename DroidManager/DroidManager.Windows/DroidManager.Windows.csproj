@@ -58,6 +58,16 @@
   <PropertyGroup>
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseModphuse|AnyCPU'">
+    <OutputPath>bin\ReleaseModphuse\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.0.14.0.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -240,7 +250,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="Obfuscate" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+  <Target Name="Obfuscate" AfterTargets="Build" Condition="'$(Configuration)' == 'ReleaseModphuse'">
     <Exec Command="$(ProjectDir)AdditionalTools\bin\Confuser.CLI.exe -n $(ProjectDir)AdditionalTools\DroidManager.Windows.crproj" />
   </Target>
 </Project>
