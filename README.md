@@ -2,7 +2,7 @@
 
 An Android device manager application
 
-By using this software, you agree to abide by the conditions stated in [LICENSE.md](LICENSE.md).
+By using this software, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
 
 ## Screenshot
 
