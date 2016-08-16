@@ -32,14 +32,14 @@
                         <MenuItem Header="Backup APK, Data, and assets" Command="{Binding BackupDataApkAndObbCommand}" />
                     </MenuItem>
                     <MenuItem Header="Restore">
-                        <MenuItem Header="Restore Data" />
+                        <MenuItem Header="Restore Data" Command="{Binding RestoreDataCommand}" />
                     </MenuItem>
                     <MenuItem Header="Uninstall" Command="{Binding UninstallSelectedApplicationCommand}" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
         <TextBlock x:Name="infoBlock" HorizontalAlignment="Left" Margin="40,117,0,0" TextWrapping="Wrap" Text="Right click an application for more actions" VerticalAlignment="Top" />
-        <CheckBox x:Name="includeSystemAppsCheckbox" Content="Include System Apps" Margin="0,118,40,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Height="16" IsChecked="{Binding IncludeSystemApps, Mode=TwoWay}"/>
-        <Button x:Name="installAppButton" Content="Install App" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Command="{Binding InstallApplicationFromFileCommand}"/>
+        <CheckBox x:Name="includeSystemAppsCheckbox" Content="Include System Apps" Margin="0,118,40,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Height="16" IsChecked="{Binding IncludeSystemApps, Mode=TwoWay}" />
+        <Button x:Name="installAppButton" Content="Install App" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Command="{Binding InstallApplicationFromFileCommand}" />
     </Grid>
 </UserControl>

@@ -113,7 +113,7 @@ namespace DroidManager.Windows.VM.Pages
 
         private async void BrowseBackupPath(object obj)
         {
-            BackupLocation = await HostViewWindow.ShowInputAsync("Save backup", "Enter a full file path to save the backup to.");
+            BackupLocation = await HostViewWindow.ShowInputAsync("Select backup path", "Enter the full file path to a backup location.");
             OnPropertyChanged(nameof(BackupLocation));
         }
 

@@ -11,7 +11,7 @@
         <pagevm:BackupPageVM />
     </UserControl.DataContext>
     <Grid>
-        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Backup" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold" />
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Device Backup/Restore" VerticalAlignment="Top" Height="37" Width="247" FontSize="22" FontWeight="Bold" />
 
         <!--User Interface-->
 

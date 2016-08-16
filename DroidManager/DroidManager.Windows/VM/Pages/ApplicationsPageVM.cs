@@ -21,6 +21,16 @@ namespace DroidManager.Windows.VM.Pages
         public ICommand BackupDataCommand => new DelegateCommand(BackupData);
         public ICommand BackupDataApkCommand => new DelegateCommand(BackupDataApk);
         public ICommand BackupDataApkAndObbCommand => new DelegateCommand(BackupDataApkAndObb);
+        public ICommand RestoreDataCommand => new DelegateCommand(RestoreData);
+
+        private void RestoreData(object obj)
+        {
+            var backupLocation = FileDialogUtil.BrowseForOpenFile("Android Backups (*.ab)|*.ab|All Files (*.*)|*.*", "Select an backup to restore.");
+            if (backupLocation != null)
+            {
+                RunBackupRestore(backupLocation);
+            }
+        }
 
         private void BackupDataApkAndObb(object obj)
         {
@@ -46,6 +56,30 @@ namespace DroidManager.Windows.VM.Pages
             if (backupLocation != null)
             {
                 RunApplicationBackup(false, false, backupLocation);
+            }
+        }
+
+        private async void RunBackupRestore(string backupFile)
+        {
+            List<string> restoreArguments = new List<string>();
+            restoreArguments.Add(backupFile);
+
+            var progressController = await HostWindow.ShowProgressAsync("Restoring Backup", $"Please wait while the backup is restored.");
+            progressController.SetIndeterminate();
+
+            //Start backup process
+            var restoreProcess = new CommandLineAdbExecutor(Properties.Settings.Default.adbExecutablePath);
+
+            var processController = restoreProcess.ExecuteCommand("restore", restoreArguments.ToArray());
+            int exitCode = await processController.WaitForCompletion();
+            await progressController.CloseAsync();
+            if (exitCode == 0)
+            {
+                await HostWindow.ShowMessageAsync("Success", "The operation completed successfully.");
+            }
+            else
+            {
+                await HostWindow.ShowMessageAsync("Error", $"The process exited with error code {exitCode}.");
             }
         }
 

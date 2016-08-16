@@ -46,7 +46,7 @@
                                 <materialMenu:MenuButton.Children>
                                     <materialMenu:MenuButton Text="Overview" MouseDown="overviewTab_MouseDown" />
                                     <materialMenu:MenuButton Text="Applications" MouseDown="applicationsTab_MouseDown" />
-                                    <materialMenu:MenuButton Text="Backup" MouseDown="backupTab_MouseDown" />
+                                    <materialMenu:MenuButton Text="Backup/Restore" MouseDown="backupTab_MouseDown" />
                                     <materialMenu:MenuButton Text="File Transfer" MouseDown="fileTransferTab_MouseDown" />
                                 </materialMenu:MenuButton.Children>
                             </materialMenu:MenuButton>
