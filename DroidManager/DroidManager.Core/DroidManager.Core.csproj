@@ -60,6 +60,9 @@
     <Compile Include="Utilities\AdbChecker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\DroidManager.Windows\DroidManager.Windows.licenseheader">
+      <Link>DroidManager.Windows.licenseheader</Link>
+    </None>
     <None Include="DroidManagerCoreKey.snk" />
   </ItemGroup>
   <ItemGroup>
