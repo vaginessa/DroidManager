@@ -4,7 +4,7 @@ An Android device manager application
 
 By using this software, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
 
-## Screenshot
+## Screenshot (older version)
 
 ![screenshot](https://iridiumion.xyz/projects/droidmanager/img/srec1.gif)
 
@@ -16,22 +16,19 @@ By using this software, you agree to abide by the license stated in [LICENSE.md]
 - Battery information
 - `getprop` values
 - USB mode detection
-- Backup
-
-### Partially Implemented (In progress)
-
-- App management (almost done!)
+- Backup and Restore
+- Application Management (Data too!)
 
 ### Coming Soon
 
+- Advanced boot
 - File Transfer
 - Terminal
 
 ### Planned
 
-- ROM Flashing
-- Advanced boot
-- Recovery update
+- Fastboot Flashing
+- Recovery update (adb sideload)
 
 ## Acknowledgements
 
