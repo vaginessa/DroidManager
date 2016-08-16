@@ -1,4 +1,4 @@
-<project outputDir=".\Modphused" baseDir="..\bin\Release" xmlns="http://confuser.codeplex.com">
+<project outputDir=".\Modphused" baseDir="..\bin\ReleaseModphuse" xmlns="http://confuser.codeplex.com">
   <module path="DroidManager.Core.dll" snKey="..\..\..\DroidManager.Core\DroidManagerCoreKey.snk">
     <rule pattern="true" preset="maximum" inherit="false" />
   </module>
