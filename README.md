@@ -4,6 +4,10 @@ An Android device manager application
 
 By using this software, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
 
+## [Download latest ALPHA build](https://ci.appveyor.com/api/projects/0xFireball/droidmanager/artifacts/DroidManager/DroidManager.Windows/bin/DroidManager_bin.zip)
+
+This alpha build is NOT STABLE!
+
 ## Screenshot (older version)
 
 ![screenshot](https://iridiumion.xyz/projects/droidmanager/img/srec1.gif)
