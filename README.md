@@ -31,11 +31,12 @@ Note: the application still has tabs for all the unimplemented features, you mig
 
 - File Transfer
 - Terminal
+- Fastboot Flashing
+- Sideloading
 
 ### Planned
 
-- Fastboot Flashing
-- Recovery update (adb sideload)
+- More soon!
 
 ## Acknowledgements
 
