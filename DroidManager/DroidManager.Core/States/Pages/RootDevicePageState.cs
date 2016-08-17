@@ -45,7 +45,9 @@ namespace DroidManager.Core.States.Pages
 
         private string _ssuzippath;
 
-        private string _supersuzipfilename = "SuperSU-root-BETA-v2.67.zip";
+        public string SuperSUPath => "/sdcard/SuperSU-root-BETA-v2.67.zip";
+
+        public int SuperSUZipPermissions => 0777;
 
         private string _ssudownloadurl = "https://github.com/IridiumIon/DroidManager-Assets/releases/download/supersu-1/SuperSU-root-BETA-v2.67.zip";
 
@@ -66,7 +68,7 @@ namespace DroidManager.Core.States.Pages
                     using (SyncService service = new SyncService(AndroidDeviceConnection.OverviewState.DefaultAdbSocket, _currentDevice.DeviceMetadata))
                     using (Stream stream = File.OpenRead(_ssuzippath))
                     {
-                        service.Push(stream, $"/sdcard/{_supersuzipfilename}", 0777, DateTime.Now, CancellationToken.None);
+                        service.Push(stream, SuperSUPath, SuperSUZipPermissions, DateTime.Now, CancellationToken.None);
                     }
                     ret = true;
                 }
@@ -76,6 +78,11 @@ namespace DroidManager.Core.States.Pages
                 }
             });
             return ret;
+        }
+
+        public void RebootRecovery()
+        {
+            _currentDevice.DeviceConnection.Reboot("recovery");
         }
     }
 }

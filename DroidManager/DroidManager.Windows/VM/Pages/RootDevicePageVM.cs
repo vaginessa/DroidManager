@@ -63,12 +63,15 @@ namespace DroidManager.Windows.VM.Pages
                     //Download SuperSU
                     await _pageState.DownloadSuperSU();
                     progressController.SetTitle("Pushing");
-                    progressController.SetMessage("Pushing SuperSU");
+                    progressController.SetMessage($"Pushing SuperSU to {_pageState.SuperSUPath} ({_pageState.SuperSUZipPermissions})");
                     //Push SuperSU
                     if (!await _pageState.PushSuperSU())
                     {
                         throw new ApplicationException("Error pushing SuperSU");
                     }
+                    progressController.SetTitle("Rebooting");
+                    progressController.SetMessage("Rebooting into recovery mode");
+                    _pageState.RebootRecovery();
                     await progressController.CloseAsync();
                 }
                 catch (Exception ex)
