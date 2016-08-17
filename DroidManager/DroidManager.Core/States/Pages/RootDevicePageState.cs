@@ -70,6 +70,7 @@ namespace DroidManager.Core.States.Pages
                     {
                         service.Push(stream, SuperSUPath, SuperSUZipPermissions, DateTime.Now, CancellationToken.None);
                     }
+                    File.Delete(_ssuzippath);
                     ret = true;
                 }
                 catch (Exception)
