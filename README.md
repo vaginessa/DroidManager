@@ -24,10 +24,11 @@ Note: the application still has tabs for all the unimplemented features, you mig
 - USB mode detection
 - Backup and Restore
 - Application Management (Data too!)
+- Advanced boot
+- Root with SuperSU Systemless
 
 ### Coming Soon
 
-- Advanced boot
 - File Transfer
 - Terminal
 
