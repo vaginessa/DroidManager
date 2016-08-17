@@ -134,7 +134,8 @@ namespace DroidManager.Windows.VM
             {
                 await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
                 //It is null. Refresh devices now.
-                AndroidDeviceConnection.OverviewState.RefreshDevices();
+                //Never mind    
+                //AndroidDeviceConnection.OverviewState.RefreshDevices();
             }
         }
 

@@ -134,6 +134,7 @@ namespace DroidManager.Core.States.Pages
 
         public event EventHandler NoDevicesAvailable;
 
+        /*
         public void RefreshDevices()
         {
             //The monitor isn't that reliable
@@ -144,5 +145,6 @@ namespace DroidManager.Core.States.Pages
                 RegisterCurrentDevice(newDeviceData);
             }
         }
+        */
     }
 }
