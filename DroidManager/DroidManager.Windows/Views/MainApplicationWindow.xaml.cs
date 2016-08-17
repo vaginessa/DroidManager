@@ -89,5 +89,20 @@ namespace DroidManager.Windows.Views
         {
             PageChanged?.Invoke(this, "Terminal");
         }
+
+        private void sideloadTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Sideload");
+        }
+
+        private void imageFlasherTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Image Flasher");
+        }
+
+        private void rootDeviceTab_mouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PageChanged?.Invoke(this, "Root Device");
+        }
     }
 }

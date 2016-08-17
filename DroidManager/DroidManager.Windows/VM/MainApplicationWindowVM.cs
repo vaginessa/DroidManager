@@ -108,6 +108,21 @@ namespace DroidManager.Windows.VM
                         case "Terminal":
                             LoadTerminalPage();
                             break;
+
+                        case "Sideload":
+                            LoadSideloadPage();
+                            break;
+
+                        case "Image Flasher":
+                            LoadImageFlasherPage();
+                            break;
+
+                        case "Root Device":
+                            LoadRootDevicePage();
+                            break;
+
+                        default:
+                            throw new NotImplementedException("Tab identifier not found.");
                     }
                 }
                 catch (NotImplementedException)
@@ -119,6 +134,21 @@ namespace DroidManager.Windows.VM
             {
                 await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
             }
+        }
+
+        private void LoadRootDevicePage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadImageFlasherPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSideloadPage()
+        {
+            throw new NotImplementedException();
         }
 
         private void LoadTerminalPage()
