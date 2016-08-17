@@ -122,11 +122,27 @@ namespace DroidManager.Core.States.Pages
             var allDevices = AdbClient.Instance.GetDevices();
             //Since name isn't in eventargs, get name from the alldevices by matching serial number
             var newDeviceData = allDevices.Where(device => device.Serial == e.Device.Serial).ToArray()[0];
+            RegisterCurrentDevice(newDeviceData);
+        }
+
+        private void RegisterCurrentDevice(DeviceData newDeviceData)
+        {
             var newDevice = new AndroidDevice(newDeviceData);
             ConnectedDevices.Add(newDevice);
             CurrentDevice = newDevice;
         }
 
         public event EventHandler NoDevicesAvailable;
+
+        public void RefreshDevices()
+        {
+            //The monitor isn't that reliable
+            var allDevices = AdbClient.Instance.GetDevices();
+            if (allDevices.Count > 0)
+            {
+                var newDeviceData = allDevices[0];
+                RegisterCurrentDevice(newDeviceData);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿#region Copyright and License Header
+
 /*
 
 	DroidManager
@@ -6,7 +7,6 @@
 	Copyright (c) 2016 0xFireball, IridiumIon Software
 
 	Author(s): 0xFireball
-	
 
 	This file is part of DroidManager.
 
@@ -24,8 +24,8 @@
 	along with DroidManager.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-#endregion
 
+#endregion Copyright and License Header
 
 using DroidManager.Core;
 using DroidManager.Windows.Views.Pages;
@@ -133,6 +133,8 @@ namespace DroidManager.Windows.VM
             else
             {
                 await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
+                //It is null. Refresh devices now.
+                AndroidDeviceConnection.OverviewState.RefreshDevices();
             }
         }
 
