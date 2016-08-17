@@ -32,6 +32,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NanoMvvm;
 using NanoMvvm.Pagination;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -86,8 +87,16 @@ namespace DroidManager.Windows.VM.Pages
             {
                 var progressController = await HostWindow.ShowProgressAsync("Rebooting", $"Rebooting device into {mode} mode");
                 progressController.SetIndeterminate();
-                _pageState.RebootIntoMode(mode);
-                await progressController.CloseAsync();
+                try
+                {
+                    _pageState.RebootIntoMode(mode);
+                    await progressController.CloseAsync();
+                }
+                catch (Exception ex)
+                {
+                    await progressController.CloseAsync();
+                    await HostWindow.ShowMessageAsync("Error", "Unable to reboot device into the specified modes" /*$"Operation failed: {ex.Message}"*/);
+                }
             }
         }
     }
