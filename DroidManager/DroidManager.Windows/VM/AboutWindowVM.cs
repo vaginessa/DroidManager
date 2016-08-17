@@ -29,6 +29,8 @@
 
 using DroidManager.Core.States;
 using NanoMvvm;
+using System.Windows.Input;
+using System;
 
 namespace DroidManager.Windows.VM
 {
@@ -39,5 +41,18 @@ namespace DroidManager.Windows.VM
         public string Header => _aboutStateModel.AboutHeader;
         public string AboutContent => _aboutStateModel.AboutContent;
         public string Copyright => _aboutStateModel.AboutCopyright;
+
+        public ICommand VisitGitHubCommand => new DelegateCommand(VisitGitHub);
+        public ICommand VisitXdaCommand => new DelegateCommand(VisitXda);
+
+        private void VisitXda(object obj)
+        {
+            _aboutStateModel.VisitXda();
+        }
+
+        private void VisitGitHub(object obj)
+        {
+            _aboutStateModel.VisitGitHub();
+        }
     }
 }

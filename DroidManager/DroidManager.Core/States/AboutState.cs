@@ -27,6 +27,9 @@
 #endregion
 
 
+using System;
+using System.Diagnostics;
+
 namespace DroidManager.Core.States
 {
     public class AboutState
@@ -34,5 +37,15 @@ namespace DroidManager.Core.States
         public string AboutHeader { get; } = "About DroidManager";
         public string AboutContent { get; } = "DroidManager is an application developed by 0xFireball of IridiumIon Software that allows you to manage your Android device.";
         public string AboutCopyright { get; } = "Copyright (©) 0xFireball, IridiumIon Software 2015-2016.";
+
+        public void VisitGitHub()
+        {
+            Process.Start("https://github.com/IridiumIon/DroidManager");
+        }
+
+        public void VisitXda()
+        {
+            Process.Start("http://forum.xda-developers.com/android/software/tool-droidmanager-noob-friendly-t3441124");
+        }
     }
 }

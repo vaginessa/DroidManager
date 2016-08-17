@@ -37,8 +37,10 @@
                       Title="About" Height="255.86" Width="356.25" Icon="../logo.ico">
     <Grid>
         <TextBlock x:Name="aboutHeaderBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Header}" FontWeight="Bold" FontSize="16" />
-        <TextBlock x:Name="aboutContentBlock" Margin="10,36,10,42.5" TextWrapping="Wrap" Text="{Binding AboutContent}" />
+        <TextBlock x:Name="aboutContentBlock" Margin="10,36,10,79.5" TextWrapping="Wrap" Text="{Binding AboutContent}" />
         <TextBlock x:Name="aboutCopyrightBlock" Margin="10,0,10,9.5" TextWrapping="Wrap" Text="{Binding Copyright}" Height="28" VerticalAlignment="Bottom" />
+        <Button x:Name="aboutGithub" Content="GitHub" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="83" Command="{Binding VisitGitHubCommand}"/>
+        <Button x:Name="aboutXda" Content="XDA" HorizontalAlignment="Left" Margin="98,153,0,0" VerticalAlignment="Top" Width="83" Command="{Binding VisitXdaCommand}"/>
     </Grid>
     <Window.DataContext>
         <vm:AboutWindowVM />

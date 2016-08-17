@@ -90,7 +90,5 @@ namespace DroidManager.Windows.VM.Pages
                 await progressController.CloseAsync();
             }
         }
-
-
     }
 }
