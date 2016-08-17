@@ -59,6 +59,7 @@ namespace DroidManager.Core.States.Pages
         }
 
         public AndroidDeviceInformationService CurrentDeviceInformationService { get; set; }
+        public IAdbSocket DefaultAdbSocket => new AdbSocket(AdbServer.Instance.EndPoint);
 
         public OverviewPageState(string adbExecutablePath)
         {
@@ -73,7 +74,7 @@ namespace DroidManager.Core.States.Pages
 
             //Start ADB monitor
 
-            var monitor = new DeviceMonitor(new AdbSocket(AdbServer.Instance.EndPoint));
+            var monitor = new DeviceMonitor(DefaultAdbSocket);
             //Subscribe for more events
             monitor.DeviceConnected += Monitor_DeviceConnected;
             monitor.DeviceDisconnected += Monitor_DeviceDisconnected;

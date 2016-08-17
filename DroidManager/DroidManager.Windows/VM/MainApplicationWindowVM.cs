@@ -141,7 +141,7 @@ namespace DroidManager.Windows.VM
 
         private void LoadRootDevicePage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<RootDevicePage>();
         }
 
         private void LoadImageFlasherPage()

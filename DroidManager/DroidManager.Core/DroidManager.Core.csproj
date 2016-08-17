@@ -67,6 +67,7 @@
     <Compile Include="States\Pages\ApplicationsPageState.cs" />
     <Compile Include="States\Pages\BatteryPageState.cs" />
     <Compile Include="States\Pages\OverviewPageState.cs" />
+    <Compile Include="States\Pages\RootDevicePageState.cs" />
     <Compile Include="Utilities\AdbChecker.cs" />
   </ItemGroup>
   <ItemGroup>

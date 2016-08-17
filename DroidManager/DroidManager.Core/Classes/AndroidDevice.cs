@@ -38,6 +38,7 @@ namespace DroidManager.Core.Classes
         public DeviceData DeviceMetadata { get; }
         public Device DeviceConnection { get; }
         public DeviceState DeviceState { get; }
+        public string DeviceStateString => DeviceState.ToString().ToLowerInvariant();
         public string StatusText { get; private set; }
         public string DeviceName { get; private set; }
         public Dictionary<string, string> AdditionalProperties { get; }
