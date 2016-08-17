@@ -4,7 +4,6 @@
 	Copyright (c) 2016 0xFireball, IridiumIon Software
 
 	Author(s): 0xFireball
-	
 
 	This file is part of DroidManager.
 
@@ -19,8 +18,7 @@
 	GNU General Public License for more details.
 
 	You should have received a copy of the GNU General Public License
-	along with DroidManager.  If not, see <http://www.gnu.org/licenses/>.
-
+	along with DroidManager.  If not, see <http://www.gnu.org/licenses />.
 
 -->
 <Controls:MetroWindow x:Class="DroidManager.Windows.Views.MainApplicationWindow"

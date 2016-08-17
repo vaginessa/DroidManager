@@ -158,7 +158,7 @@ namespace DroidManager.Windows.VM
 
         private void LoadAdvancedBootPage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<AdvancedBootPage>();
         }
 
         private void LoadBatteryPage()
