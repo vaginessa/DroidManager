@@ -115,7 +115,7 @@ namespace SharpAdbClient
         /// </summary>
         /// <param name="state">The device state string</param>
         /// <returns></returns>
-        internal static DeviceState GetStateFromString(string state)
+        public static DeviceState GetStateFromString(string state)
         {
             // Default to the unknown state
             DeviceState value = DeviceState.Unknown;
