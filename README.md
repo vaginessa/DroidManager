@@ -6,13 +6,15 @@ By using this software, you agree to abide by the license stated in [LICENSE.md]
 
 ## [Download latest ALPHA build](https://ci.appveyor.com/api/projects/0xFireball/droidmanager/artifacts/DroidManager/DroidManager.Windows/bin/DroidManager_bin.zip)
 
-This alpha build is NOT STABLE!
+This alpha build is NOT PRODUCTION READY!
 
 ## Screenshot (older version)
 
 ![screenshot](https://iridiumion.xyz/projects/droidmanager/img/srec1.gif)
 
 ## Feature map
+
+Note: the application still has tabs for all the unimplemented features, you might get a popup saying that they are not yet implemented when you click on the tab.
 
 ### Implemented
 
