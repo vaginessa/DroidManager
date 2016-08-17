@@ -1,25 +1,25 @@
 ﻿<!--
-	DroidManager
-
-	Copyright (c) 2016 0xFireball, IridiumIon Software
-
-	Author(s): 0xFireball
-
-	This file is part of DroidManager.
-
-	DroidManager is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
-
-	DroidManager is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with DroidManager.  If not, see <http://www.gnu.org/licenses />.
-
+     DroidManager
+     
+     Copyright (c) 2016 0xFireball, IridiumIon Software
+     
+     Author(s): 0xFireball
+     
+     This file is part of DroidManager.
+     
+     DroidManager is free software: you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation, either version 3 of the License, or
+     (at your option) any later version.
+     
+     DroidManager is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+     
+     You should have received a copy of the GNU General Public License
+     along with DroidManager.  If not, see <http://www.gnu.org/licenses />.
+     
 -->
 <UserControl x:Class="DroidManager.Windows.Views.Pages.AdvancedBootPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -35,5 +35,19 @@
     </UserControl.DataContext>
     <Grid>
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Left" Margin="40,40,0,0" TextWrapping="Wrap" Text="Advanced Boot" VerticalAlignment="Top" Height="37" Width="220" FontSize="22" FontWeight="Bold" />
+        <TextBlock x:Name="currentModeInfoText" HorizontalAlignment="Left" Margin="40,82,0,0" TextWrapping="Wrap" Text="{Binding CurrentModeInfoText}" VerticalAlignment="Top" Height="17" Width="336" />
+
+        <Button x:Name="refreshButton" Content="Refresh" Margin="0,82,20,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94" />
+
+        <GroupBox x:Name="rebootModesGroupBox" Header="Reboot" HorizontalAlignment="Left" Margin="40,104,0,0" VerticalAlignment="Top" Height="204" Width="220">
+            <Grid>
+                <Button x:Name="rebootStandardButton" Content="Normal" Margin="10,10,10,0" VerticalAlignment="Top" Command="{Binding RebootNormalCommand}"/>
+                <Button x:Name="rebootRecoveryButton" Content="Recovery" Margin="10,47,10,0" VerticalAlignment="Top" Command="{Binding RebootRecoveryCommand}"/>
+                <Button x:Name="rebootBootloaderButton" Content="Bootloader" Margin="10,84,10,0" VerticalAlignment="Top" Command="{Binding RebootBootloaderCommand}"/>
+                <Button x:Name="rebootSideloadButton" Content="Sideload" Margin="10,121,10,0" VerticalAlignment="Top" Command="{Binding RebootSideloadCommand}"/>
+            </Grid>
+        </GroupBox>
+
+
     </Grid>
 </UserControl>

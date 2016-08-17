@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\AboutState.cs" />
     <Compile Include="States\IntroState.cs" />
+    <Compile Include="States\Pages\AdvancedBootPageState.cs" />
     <Compile Include="States\Pages\ApplicationsPageState.cs" />
     <Compile Include="States\Pages\BatteryPageState.cs" />
     <Compile Include="States\Pages\OverviewPageState.cs" />
