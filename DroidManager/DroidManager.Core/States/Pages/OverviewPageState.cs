@@ -105,6 +105,13 @@ namespace DroidManager.Core.States.Pages
             }
         }
 
+        public void RefreshCurrentDevice()
+        {
+            var allDevices = AdbClient.Instance.GetDevices();
+            var currentDeviceData = allDevices.Where(device => device.Serial == CurrentDevice.DeviceMetadata.Serial).ToArray()[0];
+            CurrentDevice = new AndroidDevice(currentDeviceData);
+        }
+
         internal void TriggerNoDevicesAvailable()
         {
             NoDevicesAvailable?.Invoke(this, null);
