@@ -73,6 +73,7 @@ namespace DroidManager.Windows.VM.Pages
                     progressController.SetMessage("Rebooting into recovery mode");
                     _pageState.RebootRecovery();
                     await progressController.CloseAsync();
+                    await HostWindow.ShowMessageAsync("Completed", $"SuperSU has been downloaded and pushed to your device, which should now have rebooted to recovery. In your recovery, select 'Install Zip/Package' and select the SuperSU file at {_pageState.SuperSUPath}. Your device should then be rooted! Enjoy!");
                 }
                 catch (Exception ex)
                 {
