@@ -134,7 +134,7 @@ namespace DroidManager.Windows.VM
             {
                 await (View as MetroWindow).ShowMessageAsync("Device not connected", "DroidManager could not find any devices. Please check your connection.");
                 //It is null. Refresh devices now.
-                //Never mind    
+                //Never mind
                 //AndroidDeviceConnection.OverviewState.RefreshDevices();
             }
         }
@@ -151,7 +151,7 @@ namespace DroidManager.Windows.VM
 
         private void LoadSideloadPage()
         {
-            throw new NotImplementedException();
+            _pageSwitcher.LoadPage<SideloadPage>();
         }
 
         private void LoadTerminalPage()

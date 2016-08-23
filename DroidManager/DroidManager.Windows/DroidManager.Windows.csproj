@@ -82,6 +82,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.0.14.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -138,6 +140,9 @@
     <Compile Include="Views\Pages\RootDevicePage.xaml.cs">
       <DependentUpon>RootDevicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\SideloadPage.xaml.cs">
+      <DependentUpon>SideloadPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\TerminalPage.xaml.cs">
       <DependentUpon>TerminalPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +159,7 @@
     <Compile Include="VM\Pages\FileTransferPageVM.cs" />
     <Compile Include="VM\Pages\OverviewPageVM.cs" />
     <Compile Include="VM\Pages\RootDevicePageVM.cs" />
+    <Compile Include="VM\Pages\SideloadPageVM.cs" />
     <Compile Include="VM\Pages\TerminalPageVM.cs" />
     <Compile Include="VM\SettingsWindowVM.cs" />
   </ItemGroup>
@@ -228,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\RootDevicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SideloadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
