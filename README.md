@@ -2,7 +2,11 @@
 
 An Android device manager application
 
-By using this software, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
+By using this software and/or its source, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
+
+## Help wanted!
+
+Help is wanted to test out this program with as many devices on as many ROMs as possible! The more devices we test, the better and more compatible we can get this software working! If you experience issues with one or more devices, please create an Issue!
 
 ## [Download latest ALPHA build](https://ci.appveyor.com/api/projects/0xFireball/droidmanager/artifacts/DroidManager/DroidManager.Windows/bin/DroidManager_bin.zip)
 
