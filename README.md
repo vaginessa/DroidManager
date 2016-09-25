@@ -46,8 +46,8 @@ Note: the application still has tabs for all the unimplemented features, you mig
 
 - [MaterialMenu](https://github.com/beto-rodriguez/MaterialMenu) - [MIT](https://github.com/beto-rodriguez/MaterialMenu/blob/master/LICENSE.txt)
 - [madb](https://github.com/quamotion/madb) - [Apache 2.0](https://github.com/quamotion/madb/blob/master/LICENSE)
-- [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) - [Ms-Pl](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE)
-- [MaterialDesignInXamlToolkit](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit) - [Ms-Pl](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/blob/master/License)
+- [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) - [MIT](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE)
+- [MaterialDesignInXamlToolkit](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit) - [MIT](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/blob/master/License)
 
 ## License Information
 
