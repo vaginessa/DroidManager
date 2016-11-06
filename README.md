@@ -1,5 +1,7 @@
 # DroidManager
 
+Coming soon to Linux with AvaloniaUI!
+
 An Android device manager application
 
 By using this software and/or its source, you agree to abide by the license stated in [LICENSE.md](LICENSE.md).
